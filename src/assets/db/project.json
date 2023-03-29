@@ -1,0 +1,347 @@
+{
+    "projets": [
+      {
+        "id": 1,
+        "nom": "Site web pour entreprise XYZ",
+        "description": "Création d'un site web pour l'entreprise XYZ",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "john.doe@agenceweb.com"
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "jane.smith@agenceweb.com"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "nom": "Application mobile pour client A",
+        "description": "Développement d'une application mobile pour le client A",
+        "date_debut": "2023-01-01",
+        "date_fin": "2023-06-30",
+        "budget": 150000,
+        "etat": "En attente",
+        "equipe": [
+          {
+            "id": 3,
+            "nom": "Dupont",
+            "prenom": "Pierre",
+            "email": "pierre.dupont@agenceweb.com"
+          },
+          {
+            "id": 4,
+            "nom": "Martin",
+            "prenom": "Sophie",
+            "email": "sophie.martin@agenceweb.com"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "nom": "Site web pour client B",
+        "description": "Création d'un site web pour le client B",
+        "date_debut": "2022-01-01",
+        "date_fin": "2022-04-30",
+        "budget": 100000,
+        "etat": "En cours",
+        "equipe": [
+          {
+            "id": 1,
+            "nom": "Doe",
+            "prenom": "John",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          },
+          {
+            "id": 2,
+            "nom": "Smith",
+            "prenom": "Jane",
+            "email": "",
+            "telephone": "",
+            "adresse": ""
+          }
+        ]
+      }
+    ]
+  }

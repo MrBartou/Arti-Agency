@@ -1,0 +1,298 @@
+{
+    "commandes": [
+      {
+        "id": 1,
+        "projet_id": 1,
+        "client": {
+          "nom": "Entreprise XYZ",
+          "email": "contact@entreprise-xyz.com"
+        },
+        "date_commande": "2022-02-15",
+        "prix_total": 80000,
+        "produits": [
+          {
+            "nom": "Conception et design du site web",
+            "description": "Conception et design du site web pour l'entreprise XYZ",
+            "prix": 50000
+          },
+          {
+            "nom": "Intégration et développement du site web",
+            "description": "Intégration et développement du site web pour l'entreprise XYZ",
+            "prix": 30000
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "projet_id": 2,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "projet_id": 3,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "projet_id": 4,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "projet_id": 5,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "projet_id": 6,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "projet_id": 7,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "projet_id": 8,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "projet_id": 9,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "projet_id": 10,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "projet_id": 11,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "projet_id": 12,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "projet_id": 13,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "projet_id": 14,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "projet_id": 15,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "projet_id": 16,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "projet_id": 17,
+        "client": {
+          "nom": "Client A",
+          "email": "contact@client-a.com"
+        },
+        "date_commande": "2023-03-01",
+        "prix_total": 150000,
+        "produits": [
+          {
+            "nom": "Développement de l'application mobile",
+            "description": "Développement de l'application mobile pour le client A",
+            "prix": 150000
+          }
+        ]
+      }
+    ]
+  }
