@@ -93,8 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/tailwindcss/dist/tailwind.min.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
