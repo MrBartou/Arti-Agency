@@ -35,7 +35,7 @@ export class AcceuilComponent implements OnInit {
         .to('#second', { y: -200, duration: 6 }, '-=6')
         .to('#first', { y: -100, duration: 6 }, '-=6')
         .to('.content, .blur', { top: '0%', duration: 6 }, '-=6')
-        .to('.title, nav, .footer-wrapper', { y: -600, duration: 6 }, '-=6')
+        .to('.title, .footer-wrapper', { y: -600, duration: 6 }, '-=6')
         .from('.one', { y: 40, autoAlpha: 0, duration: 3 }, '-=4')
         .from('.two', { y: 40, autoAlpha: 0, duration: 3 }, '-=3.5')
         .from('.three', { y: 40, autoAlpha: 0, duration: 3 }, '-=3.5')
