@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  isLoading: boolean = false;
-
-
+  // isLoading: boolean = false;
 }
