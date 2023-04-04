@@ -1,7 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: sans-serif;
+  //background-color: #AA96DA;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   background-color: rgba(57, 62, 70, 0.49);
   padding: 20px 40px;
   border-radius: 5px;
+
 
   h1 {
     text-align: center;
