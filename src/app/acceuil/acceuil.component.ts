@@ -8,9 +8,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./acceuil.component.scss'],
 })
 export class AcceuilComponent implements OnInit {
-  constructor() {}
+  isLoading: boolean = true;
+
+  constructor() {
+    this.isLoading = true;
+  }
 
   ngOnInit(): void {
+    // Définir la variable isLoading sur false après 2 secondes
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+
     gsap.registerPlugin(ScrollTrigger);
 
     const onScroll = () => {
