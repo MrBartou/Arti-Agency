@@ -6,7 +6,7 @@
         <div class="team-member" *ngFor="let member of selectedMembers" class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <img class="img-fouild rounded w-75 mb-3" [src]="member.image" alt="{{ member.name }}">
+              <img class="img-fouild mb-3" [src]="member.image" alt="{{ member.name }}">
               <h3>{{ member.name }}</h3>
               <h5>{{ member.position }}</h5>
               <p>{{ member.bio }}</p>
