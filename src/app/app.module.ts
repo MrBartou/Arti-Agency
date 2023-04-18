@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { LoaderComponent } from './loader/loader.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -16,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
     AcceuilComponent,
     TeamComponent,
     ProfileComponent
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

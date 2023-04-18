@@ -21,4 +21,12 @@ export class LoginComponent implements OnInit {
     });
     this.cdr.detectChanges();
   }
+
+  test() {
+    console.log('test');
+  }
 }
+
+// test() {
+//   console.log('test');
+// }
