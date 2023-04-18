@@ -47,6 +47,8 @@ h3 {
 }
 
 #team .card:hover h3,
+#team .card:hover h5,
+#team .card:hover p,
 #team .card:hover i {
   color: #fff;
 }
@@ -55,6 +57,7 @@ h3 {
   margin-bottom: 20px;
   width: 40vh;
   height: 40vh;
+  object-fit: cover;
 }
 
 #team h3 {
