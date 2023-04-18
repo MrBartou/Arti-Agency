@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './loader/loader.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { TeamComponent } from './team/team.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    AcceuilComponent,
+    TeamComponent,
+    ProfileComponent
     LoaderComponent,
-    AcceuilComponent
   ],
   imports: [
     BrowserModule,
