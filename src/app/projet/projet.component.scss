@@ -1,0 +1,35 @@
+// Import
+
+// Fonts Poiret One
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700&display=swap');
+
+// Partie titre
+.container {
+  background-color: black;
+  font-family: 'Lato', sans-serif;
+}
+
+.presentation-projet {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  height: 5vh;
+}
+
+select {
+  background-color: black;
+  border-color: black;
+  appearance: none;
+  color: white;
+}
+
+// Partie ligne
+
+.ligne {
+  display: flex;
+  justify-content: space-around;
+  height: 5vh;
+  background-color: black;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
