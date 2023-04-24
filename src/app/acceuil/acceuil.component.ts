@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MenuComponent } from '../shared/menu/menu.component';
 
 @Component({
   selector: 'app-acceuil',
