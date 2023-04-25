@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 import { CreationMaquetteComponent } from './creation-maquette/creation-maquette.component';
+import { CreationLogoComponent } from './creation-logo/creation-logo.component';
 
 const routes: Routes = [
   { path: '', component: AcceuilComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'pole-dev-mobile', component: PoleDevMobileComponent},
   { path: 'pole-dev-web', component: PoleDevWebComponent},
-  { path: 'creation-maquette', component: CreationMaquetteComponent}
+  { path: 'creation-maquette', component: CreationMaquetteComponent},
+  { path: 'creation-logo', component: CreationLogoComponent}
 ];
 
 @NgModule({
