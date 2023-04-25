@@ -11,6 +11,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContactComponent } from './contact/contact.component';
 import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 import { CreationMaquetteComponent } from './creation-maquette/creation-maquette.component';
@@ -24,6 +25,7 @@ import { CreationLogoComponent } from './creation-logo/creation-logo.component';
     TeamComponent,
     ProfileComponent,
     LoaderComponent,
+    ContactComponent,
     PoleDevMobileComponent,
     MenuComponent,
     PoleDevWebComponent,
