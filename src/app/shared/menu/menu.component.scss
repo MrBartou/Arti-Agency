@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Montserrat:ital,wght@1,900&display=swap');
+
+.parent {
+  position: fixed;
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: repeat(12, 1FR);
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.container {
+  // met un fond transparent foncé
+  background-color: rgba(50, 50, 50, 0.5);
+  backdrop-filter: blur(10px);
+  grid-column: 5 / 9;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 1%;
+  color: white;
+}
+
+
+.container-menu {
+  background-color: #323232;
+  list-style: none;
+  margin: auto;
+  height: 97%;
+  width: 99%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 1%;
+}
+
+.container-menu_link {
+  border: 1px solid #707070;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  font-size: 100%;
+  border-radius: 15px;
+  width: 40%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1500px) {
+  .container {
+    grid-column: 4 / 9;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .container {
+    grid-column: 3 / 10;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .container {
+    grid-column: 2 / 11;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  .container {
+    grid-column: 1 / 13;
+  }
+}
+
+
+
+

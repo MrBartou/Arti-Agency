@@ -8,9 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from './loader/loader.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { MenuComponent } from './shared/menu/menu.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
+import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.compon
     ProfileComponent,
     LoaderComponent,
     PoleDevMobileComponent,
+    MenuComponent,
+    PoleDevWebComponent,
   ],
   imports: [
     BrowserModule,
