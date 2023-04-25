@@ -11,8 +11,8 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
-
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
     TeamComponent,
     ProfileComponent,
     LoaderComponent,
+    PoleDevMobileComponent,
     MenuComponent,
     PoleDevWebComponent,
   ],

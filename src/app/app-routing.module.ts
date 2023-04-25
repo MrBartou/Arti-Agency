@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'teams', component: TeamComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'pole-dev-web', component: PoleDevWebComponent}
+  { path: 'pole-dev-mobile', component: PoleDevMobileComponent},
+  { path: 'pole-dev-web', component: PoleDevWebComponent},
 ];
 
 @NgModule({
