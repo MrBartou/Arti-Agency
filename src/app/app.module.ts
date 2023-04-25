@@ -10,6 +10,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
     TeamComponent,
     ProfileComponent,
     LoaderComponent,
+    PoleDevWebComponent,
   ],
   imports: [
     BrowserModule,
