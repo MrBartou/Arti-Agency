@@ -1,25 +1,27 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
+export class LoginComponent {
+  // Variables pour stocker les données de connexion
+  username: string;
+  password: string;
 
-export class LoginComponent implements OnInit {
+  constructor() {
+    // Initialiser les variables
+    this.username = '';
+    this.password = '';
+  }
 
-  constructor(private cdr: ChangeDetectorRef) { }
-
-  ngOnInit() {
-    const labels = document.querySelectorAll('.form-control label') as NodeListOf<HTMLLabelElement>;
-
-    labels.forEach((label: HTMLLabelElement) => {
-      label.innerHTML = label.innerText
-        .split('')
-        .map((letter, idx) => `<span class="animated" style="
-            transition-delay:${idx * 50}ms;">${letter}</span>`).join('');
-    });
-    this.cdr.detectChanges();
+  // Fonction pour gérer la soumission du formulaire
+  onSubmit(): void {
+    // Effectuer la logique de connexion ici
+    console.log("Nom d'utilisateur:", this.username);
+    console.log('Mot de passe:', this.password);
+    // Remplacez cette logique avec votre propre logique de connexion
   }
 
   test() {

@@ -6,6 +6,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './dashboard/home/home.component';
+import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 
 const routes: Routes = [
   { path: '', component: AcceuilComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'teams', component: TeamComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'admin/home', component: HomeComponent},
+  { path: 'pole-dev-web', component: PoleDevWebComponent}
 ];
 
 @NgModule({
