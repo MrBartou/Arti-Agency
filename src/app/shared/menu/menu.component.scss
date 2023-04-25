@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Montserrat:ital,wght@1,900&display=swap');
+
 .parent {
   position: fixed;
   z-index: 9999;
@@ -9,45 +11,75 @@
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.5);
+  // met un fond transparent foncé
+  background-color: rgba(50, 50, 50, 0.5);
   backdrop-filter: blur(10px);
   grid-column: 5 / 9;
-  width: 100%;
   height: 10vh;
-  padding-left: 5%;
-  padding-right: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 15px;
+  padding: 1%;
   color: white;
 }
 
 
-.container-menu-first {
-  background-color: #707070;
+.container-menu {
+  background-color: #323232;
   list-style: none;
-  height: 5vh;
-  padding-left: 5%;
-  padding-right: 5%;
-  border: 1px solid white;
-  border-radius: 5px;
+  margin: auto;
+  height: 97%;
+  width: 99%;
+  border-radius: 15px;
   display: flex;
+  align-items: center;
+  padding: 1%;
+}
+
+.container-menu_link {
+  border: 1px solid #707070;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  font-size: 100%;
+  border-radius: 15px;
+  width: 40%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.container-menu-second {
-  /*ajoute moi une bordure de 1px noir*/
-  background-color: #707070;
-  height: 5vh;
-  padding-left: 5%;
-  padding-right: 5%;
-  border: 1px solid white;
-  border-radius: 5px;
-  width: 70%;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+a {
+  text-decoration: none;
+  text-align: center;
+  color: white;
 }
+
+@media only screen and (min-width: 1201px) and (max-width: 1500px) {
+  .container {
+    grid-column: 4 / 9;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .container {
+    grid-column: 3 / 10;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .container {
+    grid-column: 2 / 11;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+  .container {
+    grid-column: 1 / 13;
+  }
+}
+
+
+
+
