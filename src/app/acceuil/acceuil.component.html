@@ -1,5 +1,8 @@
 <app-loader *ngIf="isLoading"></app-loader>
 
+<app-menu *ngIf="!isLoading"></app-menu>
+
+
 <div *ngIf="!isLoading" class="body">
   <section id="first-section">
     <div class="container">
@@ -25,16 +28,6 @@
         </div>
         <div class="blur"></div>
       </div>
-<!--      <footer>-->
-<!--        <div class="footer-wrapper">-->
-<!--          <ul>-->
-<!--            <li>Instagram.</li>-->
-<!--            <li>Facebook.</li>-->
-<!--            <li>Dribble.</li>-->
-<!--            <li>Twitter.</li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </footer>-->
       <div class="content">
         <div class="content-wrapper">
           <div class="content-images">
