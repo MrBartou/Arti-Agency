@@ -1,98 +1,64 @@
-.container {
-  background-color: rgba(57, 62, 70, 0.49);
-  padding: 20px 40px;
-  border-radius: 5px;
+/* login.component.scss */
 
-  h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  a {
-    text-decoration: none;
-    color: lightblue;
-  }
+/* Conteneur principal */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Hauteur de la page */
 }
 
-.btn {
-  cursor: pointer;
-  display: inline-block;
+/* Titre du formulaire */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Formulaire */
+form {
+  width: 300px; /* Largeur du formulaire */
+  padding: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+/* Label pour les champs de saisie */
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Champs de saisie */
+input {
   width: 100%;
-  background: lightblue;
-  padding: 15px;
-  font-family: inherit;
-  font-size: 16px;
-  border: 0;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  outline: none;
+}
+
+/* Bouton de soumission */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
   border-radius: 5px;
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
 }
 
-.text {
-  margin-top: 30px;
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
-.form-control {
-  position: relative;
-  margin: 20px 0 40px;
-  width: 300px;
-
-  input {
-    background-color: transparent;
-    border: 0;
-    border-bottom: 2px #fff solid;
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
-    color: #fff;
-
-    &:focus {
-      outline: 0;
-      border-bottom-color: lightblue;
-    }
-
-    &:valid {
-      outline: 0;
-      border-bottom-color: lightblue;
-    }
-  }
-
-  label {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    pointer-events: none;
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1);
-
-    span {
-      display: inline-block;
-      font-size: 18px;
-      min-width: 5px;
-      transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1);
-    }
-
-    & + input:focus {
-      color: lightblue;
-      transform: translateY(-30px);
-    }
-
-    & + input:valid {
-      color: lightblue;
-      transform: translateY(-30px);
-    }
-  }
-}
-
-.animated {
-  display: inline-block;
-  font-size: 18px;
-  min-width: 5px;
-  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1);
+/* Champs de saisie agrandis */
+input[type="text"],
+input[type="password"] {
+  height: 3rem; /* Hauteur du champ de saisie */
+  font-size: 1.2rem; /* Taille de la police du champ de saisie */
 }
