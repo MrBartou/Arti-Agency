@@ -5,12 +5,14 @@ import { LoginComponent } from './login/login.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
 
 const routes: Routes = [
   { path: '', component: AcceuilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'teams', component: TeamComponent},
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', component: ProfileComponent},
+  { path: 'pole-dev-mobile', component: PoleDevMobileComponent}
 ];
 
 @NgModule({
