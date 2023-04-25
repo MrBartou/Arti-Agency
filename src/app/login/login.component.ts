@@ -23,4 +23,12 @@ export class LoginComponent {
     console.log('Mot de passe:', this.password);
     // Remplacez cette logique avec votre propre logique de connexion
   }
+
+  test() {
+    console.log('test');
+  }
 }
+
+// test() {
+//   console.log('test');
+// }
