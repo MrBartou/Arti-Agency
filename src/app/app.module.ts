@@ -13,6 +13,7 @@ import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PoleDevMobileComponent } from './pole-dev-mobile/pole-dev-mobile.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
+import { CreationMaquetteComponent } from './creation-maquette/creation-maquette.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
     PoleDevMobileComponent,
     MenuComponent,
     PoleDevWebComponent,
+    CreationMaquetteComponent,
   ],
   imports: [
     BrowserModule,
