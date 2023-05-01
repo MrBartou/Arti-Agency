@@ -12,6 +12,13 @@ h1 {
     background: #1e1f26;
 }
 
+.title {
+    display: inline-block;
+    position: relative;
+    font-size: 32px;
+    color: #ffffff;
+  }
+
 #projects {
     padding: var(--grid-gap);
     display: grid;
