@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MenuComponent } from '../shared/menu/menu.component';
 
 @Component({
   selector: 'app-acceuil',
@@ -8,9 +9,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./acceuil.component.scss'],
 })
 export class AcceuilComponent implements OnInit {
-  constructor() {}
+  isLoading: boolean = true;
+
+  constructor() {
+    this.isLoading = true;
+  }
 
   ngOnInit(): void {
+    // Définir la variable isLoading sur false après 2 secondes
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+
     gsap.registerPlugin(ScrollTrigger);
 
     const onScroll = () => {
@@ -35,7 +45,7 @@ export class AcceuilComponent implements OnInit {
         .to('#second', { y: -200, duration: 6 }, '-=6')
         .to('#first', { y: -100, duration: 6 }, '-=6')
         .to('.content, .blur', { top: '0%', duration: 6 }, '-=6')
-        .to('.title, nav, .footer-wrapper', { y: -600, duration: 6 }, '-=6')
+        .to('.title, .footer-wrapper', { y: -600, duration: 6 }, '-=6')
         .from('.one', { y: 40, autoAlpha: 0, duration: 3 }, '-=4')
         .from('.two', { y: 40, autoAlpha: 0, duration: 3 }, '-=3.5')
         .from('.three', { y: 40, autoAlpha: 0, duration: 3 }, '-=3.5')

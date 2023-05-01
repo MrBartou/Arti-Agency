@@ -1,0 +1,35 @@
+  <section id="team">
+    <div class="container">
+      <a routerLink="/teams" class="back-link">&larr; Retour</a>
+      <h1>Notre Équipe</h1>
+      <div class="row">
+        <div class="team-member" *ngFor="let member of selectedMembers" class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <img class="img-fouild mb-3" [src]="member.image" alt="{{ member.name }}">
+              <h3>{{ member.name }}</h3>
+              <h5>{{ member.position }}</h5>
+              <p>{{ member.bio }}</p>
+              <div class="social-icons">
+                <div class="p-4">
+                  <a [href]="member.social.facebook">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </div>
+                <div class="p-4">
+                  <a [href]="member.social.twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+                <div class="p-4">
+                  <a [href]="member.social.instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
