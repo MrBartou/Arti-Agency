@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { ProjetComponent } from './projet/projet.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
@@ -14,6 +15,7 @@ import { CreationLogoComponent } from './creation-logo/creation-logo.component';
 const routes: Routes = [
   { path: '', component: AcceuilComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'projet', component: ProjetComponent },
   { path: 'teams', component: TeamComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'contact', component: ContactComponent},
