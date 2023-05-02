@@ -18,11 +18,20 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
 
-      - name: Install dependencies
-        run: npm install
+      - name: Copy code to droplet
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DIGITALOCEAN_DROPLET_IP }}
+          username: ${{ secrets.DIGITALOCEAN_USERNAME }}
+          password: ${{ secrets.DIGITALOCEAN_PASSWORD }}
+          port: ${{ secrets.DIGITALOCEAN_SSH_PORT }}
+          source: "."
+          target: "/home/${{ secrets.DIGITALOCEAN_USERNAME }}/ArtyAgency"
 
-      - name: Build app
-        run: npm run build -- --configuration=production
+      - name: Install Docker and Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install docker.io docker-compose
 
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
@@ -32,25 +41,6 @@ jobs:
           password: ${{ secrets.DIGITALOCEAN_PASSWORD }}
           port: ${{ secrets.DIGITALOCEAN_SSH_PORT }}
           script: |
-            if ! docker --version; then
-              echo "Docker is not installed"
-              exit 1
-            fi
-
-            if ! docker-compose --version; then
-              echo "Docker Compose is not installed"
-              exit 1
-            fi
-
-            ls -la
-            ls -la /home/
-            if [ -d "/home/${{ secrets.DIGITALOCEAN_USERNAME }}/ArtyAgency" ]; then
-              echo "Directory ArtyAgency exists"
-            else
-              echo "Directory ArtyAgency does not exist"
-              exit 1
-            fi
-
-            cd /home/${{ secrets.DIGITALOCEAN_USERNAME }}/arty-agency
+            cd /home/${{ secrets.DIGITALOCEAN_USERNAME }}/ArtyAgency
             docker-compose pull
             docker-compose up -d
