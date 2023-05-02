@@ -1,18 +1,34 @@
-FROM node:latest
+# Base image
+FROM node:14-alpine AS install
 
-LABEL org.opencontainers.image.authors="Ynov Toulouse"
-LABEL multi.label1="Arti Agency"
+# Installation de la même version de l'Angular CLI que celle utilisée localement
+RUN npm install -g @angular/cli@15.2.3
 
-RUN mkdir -p /app
-
+# Définition du répertoire de travail
 WORKDIR /app
 
-COPY package*.json /app/
+# Copie des fichiers de l'application dans le conteneur
+COPY . .
 
+# Installation des dépendances
 RUN npm install
 
-COPY . /app/
+# Build de l'application
+FROM install AS build
 
-EXPOSE 4200
+RUN ng build --configuration=production --output-path=dist
 
-CMD [ "npm", "run", "start"]
+# Configuration du serveur web pour servir l'application
+FROM nginx:1.21-alpine
+
+# Copie du fichier de configuration Nginx pour servir l'application
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copie des fichiers de l'application dans le répertoire de Nginx
+COPY --from=build /app/dist/ /usr/share/nginx/html
+
+# Exposition du port 80 pour le serveur web Nginx
+EXPOSE 80
+
+# Commande pour démarrer le serveur web Nginx
+CMD ["nginx", "-g", "daemon off;"]
