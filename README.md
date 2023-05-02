@@ -8,13 +8,13 @@
 <h1 align="center">ArtyAgency</h1>
 
 <p>
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/MrBartou/artyagency?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/MrBartou/artyagency?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/MrBartou/artyagency?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/MrBartou/artyagency?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8" /> -->
 
@@ -45,7 +45,7 @@
 
 ## :dart: About
 
-ArtyAgency is a web agency project built with Angular.
+Arty Agency is a web agency that specializes in creating customized websites with unique designs that meet specific client needs. They provide personalized service and an exceptional customer experience to produce professional-quality websites that are visually impressive and user-friendly to help clients achieve their business goals.
 
 ## :rocket: Technologies
 
