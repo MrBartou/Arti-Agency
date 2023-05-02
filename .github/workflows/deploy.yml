@@ -42,6 +42,15 @@ jobs:
               exit 1
             fi
 
+            ls -la
+            ls -la /home/
+            if [ -d "/home/${{ secrets.DIGITALOCEAN_USERNAME }}/ArtyAgency" ]; then
+              echo "Directory ArtyAgency exists"
+            else
+              echo "Directory ArtyAgency does not exist"
+              exit 1
+            fi
+
             cd /home/${{ secrets.DIGITALOCEAN_USERNAME }}/arty-agency
             docker-compose pull
             docker-compose up -d
