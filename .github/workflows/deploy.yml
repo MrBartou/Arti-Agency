@@ -28,11 +28,6 @@ jobs:
           source: "."
           target: "/home/${{ secrets.DIGITALOCEAN_USERNAME }}/ArtyAgency"
 
-      - name: Install Docker and Docker Compose
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install docker.io docker-compose
-
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
         with:
