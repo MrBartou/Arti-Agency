@@ -20,6 +20,7 @@ jobs:
 
       - name: Check if directory exists
         run: |
+          ls -la
           if [ -d "app" ]; then
             echo "Directory app exists"
           else
