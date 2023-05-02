@@ -1,0 +1,39 @@
+name: Deploy to DigitalOcean
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+
+      - name: Install dependencies and build app
+        run: |
+          cd app
+          npm install
+          npm run build -- --configuration=production
+
+      - name: Deploy to DigitalOcean
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DIGITALOCEAN_DROPLET_IP }}
+          username: ${{ secrets.DIGITALOCEAN_USERNAME }}
+          password: ${{ secrets.DIGITALOCEAN_PASSWORD }}
+          port: ${{ secrets.DIGITALOCEAN_SSH_PORT }}
+          script: |
+            docker stop arty-agency || true
+            docker rm arty-agency || true
+            docker rmi arty-agency || true
+            docker build -t arty-agency .
+            docker run -d -p 80:80 --name arty-agency arty-agency
