@@ -7,7 +7,7 @@
 
 <h1 align="center">ArtyAgency</h1>
 
-<p>
+<p class="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/MrBartou/artyagency?color=56BEB8">
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/MrBartou/artyagency?color=56BEB8">
@@ -38,7 +38,6 @@
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
 </p>
 
 <br>
@@ -54,6 +53,7 @@ The following tools were used in this project:
 - [Angular](https://angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [GSAP](https://greensock.com/gsap/)
+- [JSON](https://www.json.org/json-en.html)
 
 ## :white_check_mark: Requirements
 
@@ -63,18 +63,18 @@ Before starting :checkered_flag:, you need to have [Node.js](https://nodejs.org/
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/artyagency
+$ git clone https://github.com/MrBartou/artyagency
 
 # Access
 $ cd artyagency
 
 # Install dependencies
-$ yarn
+$ npm i
 
 # Run the project
-$ yarn start
+$ ng serve
 
-# The server will initialize in the <http://localhost:3000>
+# The server will initialize in the <http://localhost:4200>
 ```
 
 ## :memo: License
