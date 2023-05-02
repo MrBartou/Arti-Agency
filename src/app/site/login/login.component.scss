@@ -1,0 +1,62 @@
+/* Conteneur principal */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Hauteur de la page */
+}
+
+/* Titre du formulaire */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Formulaire */
+form {
+  width: 300px; /* Largeur du formulaire */
+  padding: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+/* Label pour les champs de saisie */
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Champs de saisie */
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  outline: none;
+}
+
+/* Bouton de soumission */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Champs de saisie agrandis */
+input[type="text"],
+input[type="password"] {
+  height: 3rem; /* Hauteur du champ de saisie */
+  font-size: 1.2rem; /* Taille de la police du champ de saisie */
+}
