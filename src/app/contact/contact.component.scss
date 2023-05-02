@@ -1,30 +1,9 @@
-:root {
-    --primary-color: #010712;
-    --secondary-color: #818386;
-    --bg-color: #FCFDFD;
-    --button-color: #3B3636;
-    --h1-color: #3F444C;
-  }
-  
-  [data-theme="dark"] {
-    --primary-color: #FCFDFD;
-    --secondary-color: #818386;
-    --bg-color: #010712;
-    --button-color: #818386;
-    --h1-color: #FCFDFD;
-  }
-  
-  * {
-    margin: 0;
-    box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
-  }
-  
+
   .contact-container {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background: var(--bg-color);
+    background: #1e1f26;
   }
   
   .left-col {
@@ -41,7 +20,7 @@
   }
   
   .right-col {
-    background: var(--bg-color);
+    background: #1e1f26;
     width: 50vw;
     height: 100vh;
     padding: 5rem 3.5rem;
@@ -54,7 +33,7 @@
   }
   
   h1 {
-    color:var(--h1-color);
+    color: white;
     text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 0.5rem;
@@ -62,7 +41,7 @@
   }
   
   p {
-    color: var(--secondary-color);
+    color: white;
     font-size: 0.9rem;
     letter-spacing: 0.01rem;
     width: 40vw;
@@ -85,6 +64,7 @@
   input, textarea, label {
     width: 40vw;
     display: block;
+    color: white;
   }
   
   p, placeholder, input, textarea {
@@ -92,13 +72,13 @@
   }
   
   input::placeholder, textarea::placeholder {
-    color: var(--primary-color);
+    color: #1e1f26;
   }
   
   input, textarea {
-    color: var(--primary-color);
+    color: #1e1f26;
     font-weight: 500;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 3px;
     padding: 0.5rem 0.5rem;
     margin-bottom: 1rem;
@@ -112,11 +92,11 @@
   button {
     text-transform: uppercase;
     font-weight: 300;
-    background: var(--button-color);
-    color: var(--bg-color);
+    background: #1e1f26;
+    color: white;
     width: 10rem;
     height: 2.25rem;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 2px;
     outline: none;
     cursor: pointer;
@@ -201,7 +181,7 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     font-family: 'Jost';
-    color: var(--secondary-color);
+    color: white;
     }
   
     #success-msg {
