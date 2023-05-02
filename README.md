@@ -1,14 +1,13 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="ArtyAgency" />
+<div align="center" id="top">
 
-  &#xa0;
+&#xa0;
 
   <!-- <a href="https://artyagency.netlify.app">Demo</a> -->
 </div>
 
 <h1 align="center">ArtyAgency</h1>
 
-<p align="center">
+<p>
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8">
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/artyagency?color=56BEB8">
@@ -26,9 +25,9 @@
 
 <!-- Status -->
 
-<!-- <h4 align="center"> 
+<!-- <h4 align="center">
 	🚧  ArtyAgency 🚀 Under construction...  🚧
-</h4> 
+</h4>
 
 <hr> -->
 
@@ -44,31 +43,23 @@
 
 <br>
 
-## :dart: About ##
+## :dart: About
 
-Describe your project
+ArtyAgency is a web agency project built with Angular.
 
-## :sparkles: Features ##
-
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
-
-## :rocket: Technologies ##
+## :rocket: Technologies
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
+- [Angular](https://angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [GSAP](https://greensock.com/gsap/)
 
-## :white_check_mark: Requirements ##
+## :white_check_mark: Requirements
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Node.js](https://nodejs.org/en/) and [Angular CLI](https://cli.angular.io/) installed on your computer.
 
-## :checkered_flag: Starting ##
+## :checkered_flag: Starting
 
 ```bash
 # Clone this project
@@ -86,12 +77,11 @@ $ yarn start
 # The server will initialize in the <http://localhost:3000>
 ```
 
-## :memo: License ##
+## :memo: License
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://www.linkedin.com/in/maceo-basse/" target="_blank">Maceo Basse</a>, <a href="https://www.linkedin.com/in/anthony-denin/" target="_blank">Anthony DENIN</a>, <a href="https://www.linkedin.com/in/maceo-basse/" target="_blank">Philippe Vilarinho</a>
 
 &#xa0;
 
