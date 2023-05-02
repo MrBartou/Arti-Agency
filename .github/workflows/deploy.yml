@@ -18,25 +18,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
 
-      - name: Check if directory exists
-        run: |
-          ls -la
-          if [ -d "app" ]; then
-            echo "Directory app exists"
-          else
-            echo "Directory app does not exist"
-            exit 1
-          fi
-
       - name: Install dependencies
-        run: |
-          cd app
-          npm install
+        run: npm install
 
       - name: Build app
-        run: |
-          cd app
-          npm run build -- --configuration=production
+        run: npm run build -- --configuration=production
 
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
