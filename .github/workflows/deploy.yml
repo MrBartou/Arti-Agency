@@ -1,8 +1,8 @@
 name: Deploy to DigitalOcean
 on:
   push:
-    branches:
-      - "*"
+    tags:
+      - "**"
 
 jobs:
   deploy:
