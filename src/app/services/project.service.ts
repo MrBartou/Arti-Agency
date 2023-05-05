@@ -20,7 +20,7 @@ export interface Project {
   providedIn: 'root'
 })
 export class ProjectService {
-  private projectUrl = 'assets/projects.json';
+  private projectUrl = 'assets/db/projects.json';
 
   constructor(private http: HttpClient) { }
 

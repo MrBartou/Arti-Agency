@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 export interface User {
   id: number;
@@ -20,7 +20,7 @@ export interface User {
   providedIn: 'root'
 })
 export class UserService {
-  private usersUrl = 'assets/users.json';
+  private usersUrl = 'assets/db/users.json';
 
   constructor(private http: HttpClient) { }
 
@@ -44,7 +44,10 @@ export class UserService {
     return this.http.delete<User>(`${this.usersUrl}/${id}`);
   }
 
-  login(username: string, password: string): Observable<User> {
-    return this.http.get<User>(`${this.usersUrl}?username=${username}&password=${password}`);
+  login(email: string, password: string): Observable<User | undefined> {
+    return this.http.get<User[]>(this.usersUrl)
+      .pipe(
+        map(users => users.find(user => user.email === email && user.password === password))
+      );
   }
 }

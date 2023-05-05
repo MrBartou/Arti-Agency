@@ -19,6 +19,7 @@ import { PoleDevWebComponent } from './site/pole-dev-web/pole-dev-web.component'
 import { CreationMaquetteComponent } from './site/creation-maquette/creation-maquette.component';
 import { CreationLogoComponent } from './site/creation-logo/creation-logo.component';
 import { Page404Component } from './shared/page404/page404.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { Page404Component } from './shared/page404/page404.component';
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
