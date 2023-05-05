@@ -16,7 +16,7 @@ export interface Meeting {
 })
 export class MeetingService {
 
-  private meetingsUrl = 'assets/meetings.json';
+  private meetingsUrl = 'assets/db/meetings.json';
 
   constructor(private http: HttpClient) { }
 

@@ -14,7 +14,7 @@ export interface Commande {
   providedIn: 'root'
 })
 export class CommandesService {
-  private commandesUrl = 'assets/commandes.json';
+  private commandesUrl = 'assets/db/commandes.json';
 
   constructor(private http: HttpClient) { }
 

@@ -16,7 +16,7 @@ export interface Task {
 })
 export class TaskService {
 
-  private tasksUrl = 'assets/tasks.json';
+  private tasksUrl = 'assets/db/tasks.json';
 
   constructor(private http: HttpClient) { }
 
