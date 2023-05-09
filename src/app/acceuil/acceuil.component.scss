@@ -24,8 +24,17 @@ section{
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
   font-size: 100px;
+}
+
+.title1 {
+  position: relative;
+  left: -20%;
+}
+
+.title2 {
+  position: relative;
+  left: 25%;
 }
 
 .images{

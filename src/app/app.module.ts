@@ -13,6 +13,7 @@ import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -26,12 +27,13 @@ import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
     MenuComponent,
     PoleDevWebComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        NgOptimizedImage,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
