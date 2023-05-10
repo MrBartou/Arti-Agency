@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PoleDevWebComponent } from './pole-dev-web/pole-dev-web.component';
 import {NgOptimizedImage} from "@angular/common";
+import { ProjectComponent } from './dashboard/project/project.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {NgOptimizedImage} from "@angular/common";
     HomeComponent,
     MenuComponent,
     PoleDevWebComponent,
+    ProjectComponent,
   ],
     imports: [
         BrowserModule,
