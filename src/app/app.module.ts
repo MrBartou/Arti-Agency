@@ -11,7 +11,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
 import { AcceuilComponent } from './site/acceuil/acceuil.component';
 import { ProjetComponent } from './site/projet/projet.component';
 import { MenuComponent } from './shared/menu/menu.component';
-import { TeamComponent } from './team/team.component';
+import { TeamComponent } from './site/team/team.component';
 import { ProfileComponent } from './site/profile/profile.component';
 import { ContactComponent } from './site/contact/contact.component';
 import { PoleDevMobileComponent } from './site/pole-dev-mobile/pole-dev-mobile.component';
