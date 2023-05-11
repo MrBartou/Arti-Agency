@@ -9,12 +9,18 @@ export class ProjectService {
   private dbName = 'projectDB';
   private objectStoreName = 'projects';
   private projectsSubject: Subject<Project[]> = new Subject<Project[]>();
+  private hasAddedFakeProjects = false;
 
   constructor() {
     this.addFakeProjects();
   }
 
   private async addFakeProjects(): Promise<void> {
+    const existingProjects = await this.getProjectsFromDatabase();
+    if (existingProjects.length > 0 || this.hasAddedFakeProjects) {
+      return;
+    }
+
     const fakeProjects: Project[] = [
       {
         name: 'Projet 1',
@@ -47,6 +53,8 @@ export class ProjectService {
         .then(() => console.log('Projet ajouté avec succès:', project))
         .catch((error) => console.error('Erreur lors de l\'ajout du projet:', error));
     });
+
+    this.hasAddedFakeProjects = true;
   }
 
   async addProject(projectData: Project): Promise<void> {

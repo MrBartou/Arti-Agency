@@ -9,13 +9,19 @@ export class CommandesService {
   private dbName = 'commandesDB';
   private objectStoreName = 'commandes';
   private commandesSubject: Subject<Commande[]> = new Subject<Commande[]>();
+  private hasAddedFakeCommandes = false;
 
   constructor() {
     this.FakeCommandes();
   }
 
   private async FakeCommandes(): Promise<void> {
-    const fakeProjects: Commande[] = [
+    const existingCommandes = await this.getCommandesFromDatabase();
+    if (existingCommandes.length > 0 || this.hasAddedFakeCommandes) {
+      return;
+    }
+
+    const fakeCommandes: Commande[] = [
       {
         name: 'Projet 1',
         avatar: 'https://picsum.photos/200/300',
@@ -30,11 +36,13 @@ export class CommandesService {
       },
     ];
 
-    fakeProjects.forEach((commande) => {
+    fakeCommandes.forEach((commande) => {
       this.addCommande(commande)
-        .then(() => console.log('Projet ajouté avec succès:', commande))
+        .then(() => console.log('Commande ajoutée avec succès:', commande))
         .catch((error) => console.error('Erreur lors de l\'ajout de la commande:', error));
     });
+
+    this.hasAddedFakeCommandes = true;
   }
 
   async addCommande(commande: Commande): Promise<void> {

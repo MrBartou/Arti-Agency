@@ -9,12 +9,18 @@ export class UserService {
   private dbName = 'userDB';
   private objectStoreName = 'users';
   private usersSubject: Subject<User[]> = new Subject<User[]>();
+  private hasAddedFakeUsers = false;
 
   constructor() {
     this.addFakeUsers();
   }
 
-  private addFakeUsers(): void {
+  private async addFakeUsers(): Promise<void> {
+    const existingUsers = await this.getUsersFromDatabase();
+    if (existingUsers.length > 0 || this.hasAddedFakeUsers) {
+      return;
+    }
+
     const fakeUsers: User[] = [
       { username: 'john.doe', first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', phone: '1234567890', function: 'Developer', avatar: 'avatar-url', velocity: 'High', id_project: 'project-id', password: 'password1'},
       { username: 'jane.smith', first_name: 'Jane', last_name: 'Smith', email: 'jane.smith@example.com', phone: '9876543210', function: 'Designer', avatar: 'avatar-url', velocity: 'Medium', id_project: 'project-id', password: 'password2'},
@@ -25,6 +31,8 @@ export class UserService {
         .then(() => console.log('Utilisateur ajouté avec succès:', user))
         .catch((error) => console.error('Erreur lors de l\'ajout de l\'utilisateur:', error));
     });
+
+    this.hasAddedFakeUsers = true;
   }
 
   async addUser(user: User): Promise<void> {

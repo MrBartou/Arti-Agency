@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
+import { CommandesService } from '../../services/commandes.service';
 import { Project } from '../../interface/projet.interface';
+import { Commande } from '../../interface/commandes.interface';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,12 +13,16 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
   projects$: Observable<Project[]>;
   showForm: any;
+  commandes: Commande[] = [];
 
-  constructor(private projectService: ProjectService) {
+  constructor(private projectService: ProjectService, private commandesService: CommandesService) {
     this.projects$ = this.projectService.getProjects();
   }
 
   ngOnInit() {
+    this.commandesService.getCommandes().subscribe((commandes) => {
+      this.commandes = commandes;
+    });
   }
 
   ngAfterViewInit() {
