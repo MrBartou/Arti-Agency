@@ -23,6 +23,7 @@ import { CreationMaquetteComponent } from './site/creation-maquette/creation-maq
 import { CreationLogoComponent } from './site/creation-logo/creation-logo.component';
 import { Page404Component } from './shared/page404/page404.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './dashboard/form/form.component';
 
 
 
@@ -44,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     CreationMaquetteComponent,
     CreationLogoComponent,
     Page404Component,
+    FormComponent,
   ],
   imports: [
     NgOptimizedImage,

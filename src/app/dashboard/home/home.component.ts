@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  showForm: any;
   ngAfterViewInit() {
     document.addEventListener('DOMContentLoaded', () => {
       const modeSwitch = document.querySelector('.mode-switch') as HTMLElement;
@@ -41,5 +42,13 @@ export class HomeComponent {
         document.querySelector('.messages-section')?.classList.remove('show');
       });
     });
+  }
+
+  // Partie formulaire
+
+  isFormVisible: boolean = false;
+
+  openForm() {
+    this.isFormVisible = true;
   }
 }
