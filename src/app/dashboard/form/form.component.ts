@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {FormsModule} from "@angular/forms";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  // imports: [
-  //   FormsModule,
-  //   HttpClientModule
-  // ],
   selector: 'app-form',
   templateUrl: 'form.component.html',
   styleUrls: ['form.component.scss']
@@ -34,7 +29,13 @@ export class FormComponent {
       // handle the response here
       console.log("data sent to server");
     });
+
+    // "Close" the form by reloading the page
+    location.reload();
+  }
+
+  cancelForm() {
+    // "Close" the form by reloading the page
+    location.reload();
   }
 }
-
-

@@ -1,22 +1,20 @@
 <div class="container-form">
   <form (ngSubmit)="submitForm()" #projectForm="ngForm" class="form">
 
-  <h1 class="form-title">Nouveau Projet !</h1>
+    <h1 class="form-title">Nouveau Projet !</h1>
 
     <div class="données">
       <label class="name" for="name">Nom du projet :
-        <input type="text" id="name" name="name"  [(ngModel)]="projectData.name">
+        <input type="text" id="name" name="name" [(ngModel)]="projectData.name">
       </label>
 
       <label class="client" for="client">Nom du client:
-        <input type="text" id="client" name="Nom du client"  [(ngModel)]="projectData.client">
+        <input type="text" id="client" name="Nom du client" [(ngModel)]="projectData.client">
       </label>
-
 
       <label class="client_number" for="client_number">Numéro du client:
-        <input type="tel" id="client_number" name="client_number"  [(ngModel)]="projectData.client_number">
+        <input type="tel" id="client_number" name="client_number" [(ngModel)]="projectData.client_number">
       </label>
-
 
       <label class="client_email" for="client_email">Email du client:
         <input type="email" id="client_email" name="Email du client" [(ngModel)]="projectData.client_number">
@@ -39,6 +37,9 @@
       </label>
     </div>
 
-    <button type="submit">Submit</button>
+    <div class="buttons">
+      <button type="submit">Submit</button>
+      <button type="button" (click)="cancelForm()">Annuler</button>
+    </div>
   </form>
 </div>
