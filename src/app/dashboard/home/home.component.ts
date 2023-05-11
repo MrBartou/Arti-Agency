@@ -5,7 +5,7 @@ import { Project } from '../../interface/projet.interface';
 import { Commande } from '../../interface/commandes.interface';
 import { Observable, of } from 'rxjs';
 import { debounceTime } from 'rxjs/operators'
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -20,6 +20,10 @@ export class HomeComponent implements OnInit {
   commandes: Commande[] = [];
   searchTerm: string = '';
   searchControl: FormControl = new FormControl('');
+
+  totalProjects: number = 0;
+  totalProjectsCompleted: number = 0;
+  totalProjectsInProgress: number = 0;
 
 
   constructor(private projectService: ProjectService, private commandesService: CommandesService) {
@@ -41,6 +45,12 @@ export class HomeComponent implements OnInit {
     this.commandesService.getCommandes().subscribe((commandes) => {
         this.commandes = commandes;
     });
+  }
+
+  async getProjectCounts(): Promise<void> {
+    this.totalProjects = await this.projectService.getTotalProjects();
+    this.totalProjectsInProgress = await this.projectService.getUnfinishedProjectsCount();
+    this.totalProjectsCompleted = await this.projectService.getFinishedProjectsCount();
   }
 
   ngAfterViewInit() {

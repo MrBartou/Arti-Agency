@@ -75,6 +75,21 @@ export class ProjectService {
     return this.projectsSubject.asObservable();
   }
 
+  async getTotalProjects(): Promise<number> {
+    const projects = await this.getProjectsFromDatabase();
+    return projects.length;
+  }
+
+  async getUnfinishedProjectsCount(): Promise<number> {
+    const projects = await this.getProjectsFromDatabase();
+    return projects.filter(project => !project.is_finish).length;
+  }
+
+  async getFinishedProjectsCount(): Promise<number> {
+    const projects = await this.getProjectsFromDatabase();
+    return projects.filter(project => project.is_finish).length;
+  }
+
   async deleteProject(projectId: string): Promise<void> {
     const db = await this.openDatabase();
     const transaction = db.transaction(this.objectStoreName, 'readwrite');
