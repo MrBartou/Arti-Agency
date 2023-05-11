@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ProjectService } from 'src/app/services/project.service';
+import { Project } from 'src/app/interface/projet.interface';
 
 @Component({
   selector: 'app-form',
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['form.component.scss']
 })
 export class FormComponent {
-  projectData = {
+  projectData: Project = {
     name: '',
     client: '',
     client_number: '',
@@ -15,27 +16,24 @@ export class FormComponent {
     start_date: '',
     end_date: '',
     collaborator: '',
-    progress: ''
+    progress: 0,
+    departement: '',
+    is_finish: false
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private projectService: ProjectService) { }
 
   submitForm() {
-    const jsonProjectData = JSON.stringify(this.projectData);
-
-    // You can then send the jsonProjectData to a server
-    // For example, if you have an endpoint at 'http://localhost:3000/api/project', you can do:
-    this.http.post('http://localhost:3000/api/project', jsonProjectData).subscribe(response => {
-      // handle the response here
-      console.log("data sent to server");
-    });
-
-    // "Close" the form by reloading the page
-    location.reload();
+    this.projectService.addProject(this.projectData)
+      .then(() => {
+        location.reload();
+      })
+      .catch((error) => {
+        console.error('Erreur lors de l\'ajout du projet:', error);
+      });
   }
 
   cancelForm() {
-    // "Close" the form by reloading the page
     location.reload();
   }
 }

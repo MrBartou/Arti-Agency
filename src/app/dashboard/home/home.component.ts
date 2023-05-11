@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Project, ProjectService } from '../../services/project.service';
+import { ProjectService } from '../../services/project.service';
+import { Project } from '../../interface/projet.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,21 +9,14 @@ import { Project, ProjectService } from '../../services/project.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  projects: Project[] = [];
+  projects$: Observable<Project[]>;
   showForm: any;
 
-  constructor(private projectService: ProjectService) {}
-
-  ngOnInit() {
-    this.getProjects();
+  constructor(private projectService: ProjectService) {
+    this.projects$ = this.projectService.getProjects();
   }
 
-  getProjects(): void {
-    this.projectService.getProjects().subscribe(projects => {
-      this.projects = projects;
-      console.log(this.projects);
-      // console.log(this.projects[1].name)
-    });
+  ngOnInit() {
   }
 
   ngAfterViewInit() {
