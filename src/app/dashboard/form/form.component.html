@@ -1,40 +1,41 @@
 <div class="container-form">
-  <form class="form">
-    <h1 class="form-title">Nouveau Projet !</h1>
+  <form (ngSubmit)="submitForm()" #projectForm="ngForm" class="form">
+
+  <h1 class="form-title">Nouveau Projet !</h1>
 
     <div class="données">
       <label class="name" for="name">Nom du projet :
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name"  [(ngModel)]="projectData.name">
       </label>
 
       <label class="client" for="client">Nom du client:
-        <input type="text" id="client" name="Nom du client">
+        <input type="text" id="client" name="Nom du client"  [(ngModel)]="projectData.client">
       </label>
 
 
       <label class="client_number" for="client_number">Numéro du client:
-        <input type="tel" id="client_number" name="client_number">
+        <input type="tel" id="client_number" name="client_number"  [(ngModel)]="projectData.client_number">
       </label>
 
 
       <label class="client_email" for="client_email">Email du client:
-        <input type="email" id="client_email" name="Email du client">
+        <input type="email" id="client_email" name="Email du client" [(ngModel)]="projectData.client_number">
       </label>
 
       <label class="start_date" for="start_date">start:
-        <input type="date" id="start_date" name="start_date">
+        <input type="date" id="start_date" name="start_date" [(ngModel)]="projectData.start_date">
       </label>
 
       <label class="end_date" for="end_date">end:
-        <input type="date" id="end_date" name="end_date">
+        <input type="date" id="end_date" name="end_date" [(ngModel)]="projectData.end_date">
       </label>
 
       <label class="collaborator" for="collaborator">Chef de projet:
-        <input type="text" id="collaborator" name="Chef de projet">
+        <input type="text" id="collaborator" name="Chef de projet" [(ngModel)]="projectData.collaborator">
       </label>
 
       <label class="progress" for="progress">Avancement du projet:
-        <input type="number" id="progress" name="Avancement du projet">
+        <input type="number" id="progress" name="Avancement du projet" [(ngModel)]="projectData.progress">
       </label>
     </div>
 

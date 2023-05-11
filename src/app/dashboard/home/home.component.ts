@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Project, ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  projects: Project[] = [];
   showForm: any;
+
+  constructor(private projectService: ProjectService) {}
+
+  ngOnInit() {
+    this.getProjects();
+  }
+
+  getProjects(): void {
+    this.projectService.getProjects().subscribe(projects => {
+      this.projects = projects;
+      console.log(this.projects);
+      // console.log(this.projects[1].name)
+    });
+  }
+
   ngAfterViewInit() {
     document.addEventListener('DOMContentLoaded', () => {
       const modeSwitch = document.querySelector('.mode-switch') as HTMLElement;
