@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './site/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { AcceuilComponent } from './site/acceuil/acceuil.component';
 import { ProjetComponent } from './site/projet/projet.component';
@@ -54,7 +54,8 @@ import { FormComponent } from './dashboard/form/form.component';
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

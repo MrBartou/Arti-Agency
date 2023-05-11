@@ -3,7 +3,11 @@ import { ProjectService } from '../../services/project.service';
 import { CommandesService } from '../../services/commandes.service';
 import { Project } from '../../interface/projet.interface';
 import { Commande } from '../../interface/commandes.interface';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { debounceTime } from 'rxjs/operators'
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-home',
@@ -14,14 +18,28 @@ export class HomeComponent implements OnInit {
   projects$: Observable<Project[]>;
   showForm: any;
   commandes: Commande[] = [];
+  searchTerm: string = '';
+  searchControl: FormControl = new FormControl('');
+
 
   constructor(private projectService: ProjectService, private commandesService: CommandesService) {
     this.projects$ = this.projectService.getProjects();
   }
 
   ngOnInit() {
+    this.projectService.getProjects().subscribe((projects) => {
+      this.projects$ = of(projects);
+    });
+
+    this.searchControl.valueChanges
+      .pipe(debounceTime(300))
+      .subscribe((searchTerm: string) => {
+        this.projectService.getProjects(searchTerm).subscribe((projects) => {
+          this.projects$ = of(projects);
+        });
+      });
     this.commandesService.getCommandes().subscribe((commandes) => {
-      this.commandes = commandes;
+        this.commandes = commandes;
     });
   }
 

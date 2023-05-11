@@ -57,6 +57,11 @@ export class ProjectService {
     this.hasAddedFakeProjects = true;
   }
 
+  searchProjects(searchTerm: string): Observable<Project[]> {
+    this.fetchProjects(searchTerm);
+    return this.projectsSubject.asObservable();
+  }
+
   async addProject(projectData: Project): Promise<void> {
     const db = await this.openDatabase();
     const transaction = db.transaction(this.objectStoreName, 'readwrite');
@@ -65,8 +70,8 @@ export class ProjectService {
     this.fetchProjects();
   }
 
-  getProjects(): Observable<Project[]> {
-    this.fetchProjects();
+  getProjects(searchTerm: string = ''): Observable<Project[]> {
+    this.fetchProjects(searchTerm);
     return this.projectsSubject.asObservable();
   }
 
@@ -100,17 +105,18 @@ export class ProjectService {
     });
   }
 
-  private fetchProjects(): void {
+  private fetchProjects(searchTerm: string = ''): void {
     this.getProjectsFromDatabase()
       .then((projects: Project[]) => {
-        this.projectsSubject.next(projects);
+        const filteredProjects = this.filterProjects(projects, searchTerm);
+        this.projectsSubject.next(filteredProjects);
       })
       .catch((error) => {
         console.error('Erreur lors de la récupération des projets:', error);
         this.projectsSubject.next([]);
       });
   }
-
+  
   private getProjectsFromDatabase(): Promise<Project[]> {
     return new Promise((resolve, reject) => {
       this.openDatabase()
@@ -118,7 +124,7 @@ export class ProjectService {
           const transaction = db.transaction(this.objectStoreName, 'readonly');
           const objectStore = transaction.objectStore(this.objectStoreName);
           const projects: Project[] = [];
-
+  
           const request = objectStore.openCursor();
           request.onsuccess = (event: any) => {
             const cursor = event.target.result;
@@ -129,7 +135,7 @@ export class ProjectService {
               resolve(projects);
             }
           };
-
+  
           request.onerror = (event: any) => {
             reject(request.error);
           };
@@ -139,4 +145,21 @@ export class ProjectService {
         });
     });
   }
-}
+  
+  private filterProjects(projects: Project[], searchTerm: string): Project[] {
+    if (!searchTerm || searchTerm.trim() === '') {
+      return projects;
+    }
+  
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+  
+    return projects.filter((project: Project) => {
+      // Modifier les conditions de filtrage en fonction de vos besoins
+      return (
+        project.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+        project.client.toLowerCase().includes(lowerCaseSearchTerm) ||
+        project.departement.toLowerCase().includes(lowerCaseSearchTerm)
+      );
+    });
+  }
+}  
