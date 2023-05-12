@@ -79,15 +79,15 @@
       </div>
       <div class="project-boxes jsGridView">
         <div class="project-box-wrapper">
-          <div class="project-box" *ngFor="let project of projects$ | async" style="background-color: #fee4cb;">
-          <div class="project-box-header">
-            <span>{{project.start_date}}</span>
+          <div *ngFor="let project of projects$ | async; let i = index"
+               class="project-box"
+               [ngClass]="{'classe-un': i % 3 === 0, 'classe-deux': i % 3 === 1, 'classe-trois': i % 3 === 2}"
+               [style.backgroundColor]="departmentColors[project.departement]?.primary">
+            <div class="project-box-header">
+              <span>{{project.start_date}}</span>
               <div class="more-wrapper">
                 <button class="project-btn-more">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                    <circle cx="12" cy="12" r="1" />
-                    <circle cx="12" cy="5" r="1" />
-                    <circle cx="12" cy="19" r="1" /></svg>
+                  <!-- SVG code -->
                 </button>
               </div>
             </div>
@@ -98,19 +98,20 @@
             <div class="box-progress-wrapper">
               <p class="box-progress-header">Progress</p>
               <div class="box-progress-bar">
-                <span class="box-progress" style="width: 60%; background-color: #ff942e"></span>
+                <span class="box-progress" [style.width]="project.progress + '%'" [style.backgroundColor]="departmentColors[project.departement]?.secondary"></span>
               </div>
               <p class="box-progress-percentage">{{project.progress}}%</p>
             </div>
             <div class="project-box-footer">
               <div class="participants">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="participant">
+                <img [src]="project.collaborator" alt="participant"/>
               </div>
-              <div class="days-left" style="color: #ff942e;">
+              <div class="days-left" [style.color]="departmentColors[project.departement]?.secondary">
                 2 Days Left
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>

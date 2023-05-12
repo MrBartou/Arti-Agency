@@ -24,6 +24,7 @@ import { CreationLogoComponent } from './site/creation-logo/creation-logo.compon
 import { Page404Component } from './shared/page404/page404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './dashboard/form/form.component';
+import { TestComponent } from './dashboard/test/test.component';
 
 
 
@@ -46,6 +47,7 @@ import { FormComponent } from './dashboard/form/form.component';
     CreationLogoComponent,
     Page404Component,
     FormComponent,
+    TestComponent,
   ],
   imports: [
     NgOptimizedImage,

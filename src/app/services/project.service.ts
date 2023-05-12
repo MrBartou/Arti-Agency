@@ -29,9 +29,9 @@ export class ProjectService {
         client_email: 'client1@example.com',
         start_date: '2023-01-01',
         end_date: '2023-12-31',
-        collaborator: 'Collaborateur 1',
+        collaborator: 'https://images.unsplash.com/photo-1634201776710-4025b2b1beca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80',
         progress: 50,
-        departement: 'Département 1',
+        departement: 'Web développement',
         is_finish: false
       },
       {
@@ -41,9 +41,33 @@ export class ProjectService {
         client_email: 'client2@example.com',
         start_date: '2023-02-01',
         end_date: '2023-11-30',
-        collaborator: 'Collaborateur 2',
+        collaborator: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
         progress: 80,
-        departement: 'Département 2',
+        departement: 'Création graphique',
+        is_finish: false
+      },
+      {
+        name: 'Projet 3',
+        client: 'Client 3',
+        client_number: '0123456789',
+        client_email: 'client3@exemple.com',
+        start_date: '2023-03-01',
+        end_date: '2023-10-31',
+        collaborator: 'https://images.unsplash.com/photo-1521146764736-56c929d59c83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+        progress: 10,
+        departement: 'Marketing',
+        is_finish: false
+      },
+      {
+        name: 'Projet 5',
+        client: 'Client 2',
+        client_number: '9876543210',
+        client_email: 'client2@example.com',
+        start_date: '2023-02-01',
+        end_date: '2023-11-30',
+        collaborator: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+        progress: 80,
+        departement: 'Création graphique',
         is_finish: false
       },
     ];
@@ -131,7 +155,7 @@ export class ProjectService {
         this.projectsSubject.next([]);
       });
   }
-  
+
   private getProjectsFromDatabase(): Promise<Project[]> {
     return new Promise((resolve, reject) => {
       this.openDatabase()
@@ -139,7 +163,7 @@ export class ProjectService {
           const transaction = db.transaction(this.objectStoreName, 'readonly');
           const objectStore = transaction.objectStore(this.objectStoreName);
           const projects: Project[] = [];
-  
+
           const request = objectStore.openCursor();
           request.onsuccess = (event: any) => {
             const cursor = event.target.result;
@@ -150,7 +174,7 @@ export class ProjectService {
               resolve(projects);
             }
           };
-  
+
           request.onerror = (event: any) => {
             reject(request.error);
           };
@@ -160,14 +184,14 @@ export class ProjectService {
         });
     });
   }
-  
+
   private filterProjects(projects: Project[], searchTerm: string): Project[] {
     if (!searchTerm || searchTerm.trim() === '') {
       return projects;
     }
-  
+
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
-  
+
     return projects.filter((project: Project) => {
       // Modifier les conditions de filtrage en fonction de vos besoins
       return (
@@ -177,4 +201,4 @@ export class ProjectService {
       );
     });
   }
-}  
+}

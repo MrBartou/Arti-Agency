@@ -4,10 +4,8 @@ import { CommandesService } from '../../services/commandes.service';
 import { Project } from '../../interface/projet.interface';
 import { Commande } from '../../interface/commandes.interface';
 import { Observable, of } from 'rxjs';
-import { debounceTime } from 'rxjs/operators'
+import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-
-
 
 @Component({
   selector: 'app-home',
@@ -25,9 +23,12 @@ export class HomeComponent implements OnInit {
   totalProjectsCompleted: number = 0;
   totalProjectsInProgress: number = 0;
 
+  departments: string[] = ['Web développement', 'Création graphique', 'Marketing'];
+  departmentColors: {[key: string]: {primary: string, secondary: string}};
 
   constructor(private projectService: ProjectService, private commandesService: CommandesService) {
     this.projects$ = this.projectService.getProjects();
+    this.departmentColors = this.assignColorsToDepartments();
   }
 
   ngOnInit() {
@@ -43,9 +44,27 @@ export class HomeComponent implements OnInit {
         });
       });
     this.commandesService.getCommandes().subscribe((commandes) => {
-        this.commandes = commandes;
+      this.commandes = commandes;
     });
   }
+
+  assignColorsToDepartments(): {[key: string]: {primary: string, secondary: string}} {
+    let colors: {[key: string]: {primary: string, secondary: string}} = {
+      'Web développement': {primary: '#fee4cb', secondary: '#ff942e'},
+      'Création graphique': {primary: '#e9e7fd', secondary: '#4f3ff0'},
+      'Marketing': {primary: '#c8f7dc', secondary: '#34c471'}
+    };
+    let departmentColors: {[key: string]: {primary: string, secondary: string}} = {};
+
+    for (let i = 0; i < this.departments.length; i++) {
+      let department = this.departments[i];
+      departmentColors[department] = colors[department as keyof typeof colors];
+    }
+
+    return departmentColors;
+  }
+
+
 
   async getProjectCounts(): Promise<void> {
     this.totalProjects = await this.projectService.getTotalProjects();
