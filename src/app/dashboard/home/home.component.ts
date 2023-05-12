@@ -26,15 +26,28 @@ export class HomeComponent implements OnInit {
   departments: string[] = ['Web développement', 'Création graphique', 'Marketing'];
   departmentColors: {[key: string]: {primary: string, secondary: string}};
 
+  selectedProject: Project | null = null;
+
   constructor(private projectService: ProjectService, private commandesService: CommandesService) {
     this.projects$ = this.projectService.getProjects();
     this.departmentColors = this.assignColorsToDepartments();
+  }
+
+  currentDate: Date = new Date();
+  options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
+  formattedDate: string = this.currentDate.toLocaleDateString('fr-FR', this.options);
+
+  dateElement: HTMLElement | null = document.getElementById('date');
+  if (dateElement: any) {
+    dateElement.innerText = this.formattedDate;
   }
 
   ngOnInit() {
     this.projectService.getProjects().subscribe((projects) => {
       this.projects$ = of(projects);
     });
+
+    this.getProjectCounts();
 
     this.searchControl.valueChanges
       .pipe(debounceTime(300))
@@ -115,5 +128,26 @@ export class HomeComponent implements OnInit {
 
   openForm() {
     this.isFormVisible = true;
+  }
+
+  deleteProject(projectName: string): void {
+    this.projectService.deleteProjectByName(projectName);
+  }
+
+  editProject(project: Project): void {
+    this.selectedProject = project;
+  }
+
+  updateProject(project: Project): void {
+    this.projectService.updateProject(project);
+    this.selectedProject = null;
+  }
+
+  calculateDateDifference(start: string, end: string): number {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const differenceInMilliseconds = endDate.getTime() - startDate.getTime();
+    const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+    return differenceInDays;
   }
 }

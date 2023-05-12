@@ -41,7 +41,7 @@
     <div class="projects-section">
       <div class="projects-section-header">
         <p>Projects</p>
-        <p class="time">December, 12</p>
+        <p class="time">Date du jour : {{ formattedDate }}</p>
       </div>
       <div class="projects-section-line">
         <div class="projects-status">
@@ -82,13 +82,19 @@
           <div *ngFor="let project of projects$ | async; let i = index"
                class="project-box"
                [ngClass]="{'classe-un': i % 3 === 0, 'classe-deux': i % 3 === 1, 'classe-trois': i % 3 === 2}"
-               [style.backgroundColor]="departmentColors[project.departement]?.primary">
+               [style.backgroundColor]="departmentColors[project.departement].primary">
             <div class="project-box-header">
               <span>{{project.start_date}}</span>
               <div class="more-wrapper">
-                <button class="project-btn-more">
-                  <!-- SVG code -->
-                </button>
+                <div class="dropdown">
+                  <button class="project-btn-more">
+                    <!-- SVG code -->
+                  </button>
+                  <div class="dropdown-content">
+                    <a (click)="editProject(project)">Modifier</a>
+                    <a (click)="deleteProject(project.name)">Supprimer</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="project-box-content-header">
@@ -98,7 +104,7 @@
             <div class="box-progress-wrapper">
               <p class="box-progress-header">Progress</p>
               <div class="box-progress-bar">
-                <span class="box-progress" [style.width]="project.progress + '%'" [style.backgroundColor]="departmentColors[project.departement]?.secondary"></span>
+                <span class="box-progress" [style.width]="project.progress + '%'" [style.backgroundColor]="departmentColors[project.departement].secondary"></span>
               </div>
               <p class="box-progress-percentage">{{project.progress}}%</p>
             </div>
@@ -106,8 +112,8 @@
               <div class="participants">
                 <img [src]="project.collaborator" alt="participant"/>
               </div>
-              <div class="days-left" [style.color]="departmentColors[project.departement]?.secondary">
-                2 Days Left
+              <div class="days-left" [style.color]="departmentColors[project.departement].secondary">
+                {{ calculateDateDifference(project.start_date, project.end_date) }} jours restants
               </div>
             </div>
           </div>
@@ -152,3 +158,32 @@
   </div>
 </div>
 <app-form *ngIf="isFormVisible"></app-form>
+<div *ngIf="selectedProject" class="form-overlay">
+  <div *ngIf="selectedProject" class="form-wrapper">
+    <h2>Modifier le projet</h2>
+    <form (submit)="updateProject(selectedProject)">
+      <div>
+        <label for="name">Nom du projet:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="selectedProject.name" required>
+      </div>
+      <div>
+        <label for="client">Client:</label>
+        <input type="text" id="client" name="client" [(ngModel)]="selectedProject.client" required>
+      </div>
+      <div>
+        <label for="startDate">Date de début:</label>
+        <input type="date" id="startDate" name="startDate" [(ngModel)]="selectedProject.start_date" required>
+      </div>
+      <div>
+        <label for="endDate">Date de fin:</label>
+        <input type="date" id="endDate" name="endDate" [(ngModel)]="selectedProject.end_date" required>
+      </div>
+      <div>
+        <label for="progress">Progression :</label>
+        <input type="number" id="progress" name="progress" [(ngModel)]="selectedProject.progress" required>
+      </div>
+      <button type="submit">Enregistrer</button>
+      <button type="button" (click)="selectedProject = null">Annuler</button>
+    </form>
+  </div>
+</div>
