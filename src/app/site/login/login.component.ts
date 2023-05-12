@@ -1,34 +1,38 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/interface/user.interface';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  // Variables pour stocker les données de connexion
-  username: string;
+  email: string;
   password: string;
+  loginError: string;
 
-  constructor() {
-    // Initialiser les variables
-    this.username = '';
+  constructor(private userService: UserService, private router: Router) {
+    this.email = '';
     this.password = '';
+    this.loginError = '';
   }
 
-  // Fonction pour gérer la soumission du formulaire
   onSubmit(): void {
-    // Effectuer la logique de connexion ici
-    console.log("Nom d'utilisateur:", this.username);
-    console.log('Mot de passe:', this.password);
-    // Remplacez cette logique avec votre propre logique de connexion
-  }
-
-  test() {
-    console.log('test');
+    this.userService.login(this.email, this.password)
+      .subscribe(
+        (user: User | undefined) => {
+          if (user) {
+            this.router.navigate(['/admin/home']);
+          } else {
+            this.loginError = 'Nom d\'utilisateur ou mot de passe incorrect.';
+          }
+        },
+        error => {
+          this.loginError = 'Une erreur est survenue lors de l\'authentification. Veuillez réessayer plus tard.';
+          console.log(error);
+        }
+      );
   }
 }
-
-// test() {
-//   console.log('test');
-// }

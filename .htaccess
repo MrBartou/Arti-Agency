@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Zone restreinte"
+AuthUserFile /src/assets/passwords.txt
+Require valid-user

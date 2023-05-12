@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PoleDevMobileComponent } from './pole-dev-mobile.component';
+import { PoleMarketingComponent } from './pole-marketing.component';
 
-describe('PoleDevMobileComponent', () => {
-  let component: PoleDevMobileComponent;
-  let fixture: ComponentFixture<PoleDevMobileComponent>;
+describe('PoleMarketingComponent', () => {
+  let component: PoleMarketingComponent;
+  let fixture: ComponentFixture<PoleMarketingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PoleDevMobileComponent ]
+      declarations: [ PoleMarketingComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PoleDevMobileComponent);
+    fixture = TestBed.createComponent(PoleMarketingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

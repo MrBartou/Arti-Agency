@@ -15,15 +15,22 @@ export class AcceuilComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Définir la variable isLoading sur false après 2 secondes
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
+    this.loadContent(() => {
+      setTimeout(() => {
+        this.isLoading = false;
+        this.startAnimation();
+      }, 9000);
+    });
+  }
 
+  loadContent(callback: () => void): void {
+    callback();
+  }
+
+  startAnimation(): void {
     gsap.registerPlugin(ScrollTrigger);
 
     const onScroll = () => {
-      // Supprimer l'écouteur d'événement après le premier défilement
       window.removeEventListener('scroll', onScroll);
 
       const timeline = gsap.timeline({
@@ -52,7 +59,6 @@ export class AcceuilComponent implements OnInit {
         .from('.text', { y: 60, autoAlpha: 0, duration: 3 }, '-=4');
     };
 
-    // Ajouter un écouteur d'événement pour détecter le défilement de la page
     window.addEventListener('scroll', onScroll);
   }
 }
