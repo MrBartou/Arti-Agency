@@ -26,8 +26,8 @@
         <i class="fas fa-sign-out-alt fa-lg"></i>
       </button>
       <button class="profile-btn">
-        <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-        <span>Aybüke C.</span>
+        <img src="{{ userService.currentUser?.avatar }}" />
+        <span>{{ userService.currentUser?.first_name }} {{ userService.currentUser?.last_name }}</span>
       </button>
     </div>
     <button class="messages-btn">

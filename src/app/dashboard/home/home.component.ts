@@ -30,18 +30,13 @@ export class HomeComponent implements OnInit {
 
   selectedProject: Project | null = null;
 
-  constructor(private projectService: ProjectService, private commandesService: CommandesService, private router: Router, private userService: UserService) {
-    this.projects$ = this.projectService.getProjects();
-    this.departmentColors = this.assignColorsToDepartments();
-  }
-
   currentDate: Date = new Date();
   options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
   formattedDate: string = this.currentDate.toLocaleDateString('fr-FR', this.options);
 
-  dateElement: HTMLElement | null = document.getElementById('date');
-  if (dateElement: any) {
-    dateElement.innerText = this.formattedDate;
+  constructor(private projectService: ProjectService, private commandesService: CommandesService, private router: Router, public userService: UserService) {
+    this.projects$ = this.projectService.getProjects();
+    this.departmentColors = this.assignColorsToDepartments();
   }
 
   ngOnInit() {
@@ -63,6 +58,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  dateElement: HTMLElement | null = document.getElementById('date');
+  if (dateElement: any) {
+    dateElement.innerText = this.formattedDate;
+  }
+
   assignColorsToDepartments(): {[key: string]: {primary: string, secondary: string}} {
     let colors: {[key: string]: {primary: string, secondary: string}} = {
       'Web développement': {primary: '#fee4cb', secondary: '#ff942e'},
@@ -78,8 +78,6 @@ export class HomeComponent implements OnInit {
 
     return departmentColors;
   }
-
-
 
   async getProjectCounts(): Promise<void> {
     this.totalProjects = await this.projectService.getTotalProjects();

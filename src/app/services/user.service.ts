@@ -24,8 +24,8 @@ export class UserService {
     }
 
     const fakeUsers: User[] = [
-      { username: 'john.doe', first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', phone: '1234567890', function: 'Developer', avatar: 'avatar-url', velocity: 'High', id_project: 'project-id', password: 'password1'},
-      { username: 'jane.smith', first_name: 'Jane', last_name: 'Smith', email: 'jane.smith@example.com', phone: '9876543210', function: 'Designer', avatar: 'avatar-url', velocity: 'Medium', id_project: 'project-id', password: 'password2'},
+      { username: 'john.doe', first_name: 'John', last_name: 'Doe', email: 'john.doe@example.com', phone: '1234567890', function: 'Developer', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80', velocity: 'High', id_project: 'project-id', password: 'password1'},
+      { username: 'jane.smith', first_name: 'Jane', last_name: 'Smith', email: 'jane.smith@example.com', phone: '9876543210', function: 'Designer', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80', velocity: 'Medium', id_project: 'project-id', password: 'password2'},
     ];
 
     fakeUsers.forEach((user) => {
