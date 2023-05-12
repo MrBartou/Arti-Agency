@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { HomeComponent } from './dashboard/home/home.component';
+import { ProjectComponent } from './dashboard/project/project.component';
 import { LoginComponent } from './site/login/login.component';
 import { AcceuilComponent } from './site/acceuil/acceuil.component';
 import { ProjetComponent } from './site/projet/projet.component';
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'projet', component: ProjetComponent },
   { path: 'teams', component: TeamComponent},
   { path: 'profile', component: ProfileComponent},
+  { path: 'admin/home', component: HomeComponent},
+  { path: 'admin/home/project', component: ProjectComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'pole-dev', component: PoleDevWebComponent},
   { path: 'pole-creation', component: CreationMaquetteComponent},

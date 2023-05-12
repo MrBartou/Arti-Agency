@@ -1,0 +1,57 @@
+<div class="container-form">
+  <form (ngSubmit)="submitForm()" #projectForm="ngForm" class="form">
+
+    <h1 class="form-title">Nouveau Projet - Étape {{ currentStep }}</h1>
+
+    <!-- Étape 1 -->
+    <div *ngIf="currentStep === 1">
+      <div class="données">
+        <label class="name" for="name">Nom du projet :
+          <input type="text" id="name" name="name" [(ngModel)]="projectData.step1.name">
+        </label>
+
+        <label class="client" for="client">Nom du client:
+          <input type="text" id="client" name="Nom du client" [(ngModel)]="projectData.step1.client">
+        </label>
+
+        <label class="client_number" for="client_number">Numéro du client:
+          <input type="tel" id="client_number" name="client_number" [(ngModel)]="projectData.step1.client_number">
+        </label>
+
+        <label class="client_email" for="client_email">Email du client:
+          <input type="email" id="client_email" name="Email du client" [(ngModel)]="projectData.step1.client_email">
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button type="button" (click)="nextStep()">Suivant</button>
+      </div>
+    </div>
+
+    <!-- Étape 2 -->
+    <div *ngIf="currentStep === 2">
+      <div class="données">
+        <label class="start_date" for="start_date">start:
+          <input type="date" id="start_date" name="start_date" [(ngModel)]="projectData.step2.start_date">
+        </label>
+
+        <label class="end_date" for="end_date">end:
+          <input type="date" id="end_date" name="end_date" [(ngModel)]="projectData.step2.end_date">
+        </label>
+
+        <label class="collaborator" for="collaborator">Chef de projet:
+          <input type="text" id="collaborator" name="Chef de projet" [(ngModel)]="projectData.step2.collaborator">
+        </label>
+
+        <label class="departement" for="departement">Département:
+          <input type="text" id="departement" name="departement" [(ngModel)]="projectData.step2.departement">
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button type="button" (click)="previousStep()">Précédent</button>
+        <button type="submit">Soumettre</button>
+      </div>
+    </div>
+  </form>
+</div>
