@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -7,23 +7,21 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   templateUrl: './acceuil.component.html',
   styleUrls: ['./acceuil.component.scss'],
 })
-export class AcceuilComponent implements OnInit {
-  isLoading: boolean = true;
+export class AcceuilComponent implements OnInit, AfterViewInit {
+  isLoading = true;
 
-  constructor() {
-    this.isLoading = true;
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    // Définir la variable isLoading sur false après 2 secondes
     setTimeout(() => {
       this.isLoading = false;
-    }, 2000);
+    }, 9000);
+  }
 
+  ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
 
     const onScroll = () => {
-      // Supprimer l'écouteur d'événement après le premier défilement
       window.removeEventListener('scroll', onScroll);
 
       const timeline = gsap.timeline({
@@ -52,7 +50,6 @@ export class AcceuilComponent implements OnInit {
         .from('.text', { y: 60, autoAlpha: 0, duration: 3 }, '-=4');
     };
 
-    // Ajouter un écouteur d'événement pour détecter le défilement de la page
     window.addEventListener('scroll', onScroll);
   }
 }
