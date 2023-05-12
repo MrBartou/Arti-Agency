@@ -18,6 +18,7 @@ import { PoleDevWebComponent } from './site/pole-dev-web/pole-dev-web.component'
 import { CreationMaquetteComponent } from './site/creation-maquette/creation-maquette.component';
 import { Page404Component } from './shared/page404/page404.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PoleMarketingComponent } from './site/pole-marketing/pole-marketing.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     PoleDevWebComponent,
     CreationMaquetteComponent,
     Page404Component,
+    PoleMarketingComponent,
   ],
   imports: [
     BrowserModule,
