@@ -13,6 +13,7 @@ import { PoleDevWebComponent } from './site/pole-dev-web/pole-dev-web.component'
 import { CreationMaquetteComponent } from './site/creation-maquette/creation-maquette.component';
 import { Page404Component } from './shared/page404/page404.component';
 import { PoleMarketingComponent } from './site/pole-marketing/pole-marketing.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: AcceuilComponent },
@@ -20,12 +21,12 @@ const routes: Routes = [
   { path: 'projet', component: ProjetComponent },
   { path: 'teams', component: TeamComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'admin/home', component: HomeComponent},
-  { path: 'admin/home/project', component: ProjectComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'pole-dev', component: PoleDevWebComponent},
   { path: 'pole-creation', component: CreationMaquetteComponent},
   { path: 'pole-marketing', component: PoleMarketingComponent},
+  { path: 'admin/home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'admin/home/project', component: ProjectComponent, canActivate: [AuthGuard]},
   { path: '**', component: Page404Component },
 ];
 

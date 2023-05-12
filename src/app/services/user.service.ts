@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../interface/user.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,9 @@ export class UserService {
   private objectStoreName = 'users';
   private usersSubject: Subject<User[]> = new Subject<User[]>();
   private hasAddedFakeUsers = false;
+  currentUser: User | undefined;
 
-  constructor() {
+  constructor(private router: Router) {
     this.addFakeUsers();
   }
 
@@ -61,6 +63,11 @@ export class UserService {
       this.getUsersFromDatabase()
         .then((users: User[]) => {
           const foundUser = users.find((user) => user.email === email && user.password === password);
+          if (foundUser) {
+            localStorage.setItem('currentUser', JSON.stringify(foundUser));
+            this.currentUser = foundUser;
+            this.router.navigate(['/admin/home']);
+          }
           observer.next(foundUser);
           observer.complete();
         })
@@ -69,6 +76,12 @@ export class UserService {
           observer.error(error);
         });
     });
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.currentUser = undefined;
+    this.router.navigate(['/login']);
   }
 
   private openDatabase(): Promise<IDBDatabase> {

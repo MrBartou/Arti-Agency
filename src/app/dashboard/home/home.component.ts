@@ -6,6 +6,8 @@ import { Commande } from '../../interface/commandes.interface';
 import { Observable, of } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   selectedProject: Project | null = null;
 
-  constructor(private projectService: ProjectService, private commandesService: CommandesService) {
+  constructor(private projectService: ProjectService, private commandesService: CommandesService, private router: Router, private userService: UserService) {
     this.projects$ = this.projectService.getProjects();
     this.departmentColors = this.assignColorsToDepartments();
   }
@@ -149,5 +151,11 @@ export class HomeComponent implements OnInit {
     const differenceInMilliseconds = endDate.getTime() - startDate.getTime();
     const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
     return differenceInDays;
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.userService.currentUser = undefined;
+    this.router.navigate(['/login']);
   }
 }
