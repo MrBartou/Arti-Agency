@@ -17,15 +17,13 @@ import { ProjectComponent } from './dashboard/project/project.component';
 import { TeamComponent } from './site/team/team.component';
 import { ProfileComponent } from './site/profile/profile.component';
 import { ContactComponent } from './site/contact/contact.component';
-import { PoleDevMobileComponent } from './site/pole-dev-mobile/pole-dev-mobile.component';
 import { PoleDevWebComponent } from './site/pole-dev-web/pole-dev-web.component';
 import { CreationMaquetteComponent } from './site/creation-maquette/creation-maquette.component';
-import { CreationLogoComponent } from './site/creation-logo/creation-logo.component';
 import { Page404Component } from './shared/page404/page404.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './dashboard/form/form.component';
 import { TestComponent } from './dashboard/test/test.component';
-
+import { PoleMarketingComponent } from './site/pole-marketing/pole-marketing.component';
 
 
 @NgModule({
@@ -40,14 +38,13 @@ import { TestComponent } from './dashboard/test/test.component';
     HomeComponent,
     ProjectComponent,
     ContactComponent,
-    PoleDevMobileComponent,
     MenuComponent,
     PoleDevWebComponent,
     CreationMaquetteComponent,
-    CreationLogoComponent,
     Page404Component,
     FormComponent,
     TestComponent,
+    PoleMarketingComponent,
   ],
   imports: [
     NgOptimizedImage,

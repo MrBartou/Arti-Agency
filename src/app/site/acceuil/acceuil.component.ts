@@ -19,7 +19,16 @@ export class AcceuilComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.isLoading = false;
     window.addEventListener('scroll', this.onScroll);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 9000);
   }
+
+  ngAfterViewInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const onScroll = () => {
+      window.removeEventListener('scroll', onScroll);
 
   ngOnDestroy(): void {
     window.removeEventListener('scroll', this.onScroll);
@@ -52,5 +61,6 @@ export class AcceuilComponent implements OnInit, OnDestroy {
       .from('.three', { y: 40, autoAlpha: 0, duration: 3 }, '-=3.5')
       .from('.four', { y: 40, autoAlpha: 0, duration: 3 }, '-=3.5')
       .from('.text', { y: 60, autoAlpha: 0, duration: 3 }, '-=4');
+    window.addEventListener('scroll', onScroll);
   }
 }
