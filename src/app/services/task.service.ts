@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Task } from '../interface/task.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
   private dbName = 'taskDB';
@@ -24,43 +24,48 @@ export class TaskService {
     const fakeTasks: Task[] = [
       {
         projectName: 'Projet A',
-        memberAvatar: 'avatar1.jpg',
+        memberAvatar:
+          'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
         taskName: 'Tâche 1',
         taskStatus: 'todo',
-        department: 'Développement'
+        department: 'Développement',
       },
       {
         projectName: 'Projet A',
-        memberAvatar: 'avatar2.jpg',
+        memberAvatar:
+          'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
         taskName: 'Tâche 2',
         taskStatus: 'progress',
-        department: 'Marketing'
+        department: 'Marketing',
       },
       {
         projectName: 'Projet A',
-        memberAvatar: 'avatar3.jpg',
+        memberAvatar:
+          'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
         taskName: 'Tâche 3',
         taskStatus: 'review',
-        department: 'Création'
+        department: 'Création',
       },
       {
         projectName: 'Projet A',
-        memberAvatar: 'avatar4.jpg',
+        memberAvatar:
+          'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
         taskName: 'Tâche 4',
         taskStatus: 'done',
-        department: 'Développement'
+        department: 'Développement',
       },
       {
         projectName: 'Projet A',
-        memberAvatar: 'avatar5.jpg',
+        memberAvatar:
+          'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
         taskName: 'Tâche 5',
         taskStatus: 'progress',
-        department: 'Marketing'
+        department: 'Marketing',
       },
       {
         projectName: 'Projet B',
@@ -68,7 +73,7 @@ export class TaskService {
         endDate: 'Nov 24',
         taskName: 'Tâche 1',
         taskStatus: 'done',
-        department: 'Développement'
+        department: 'Développement',
       },
       {
         projectName: 'Projet B',
@@ -76,7 +81,7 @@ export class TaskService {
         endDate: 'Nov 24',
         taskName: 'Tâche 2',
         taskStatus: 'progress',
-        department: 'Marketing'
+        department: 'Marketing',
       },
       {
         projectName: 'Projet B',
@@ -84,7 +89,7 @@ export class TaskService {
         endDate: 'Nov 24',
         taskName: 'Tâche 3',
         taskStatus: 'review',
-        department: 'Création'
+        department: 'Création',
       },
       {
         projectName: 'Projet B',
@@ -92,7 +97,7 @@ export class TaskService {
         endDate: 'Nov 24',
         taskName: 'Tâche 4',
         taskStatus: 'done',
-        department: 'Développement'
+        department: 'Développement',
       },
       {
         projectName: 'Projet B',
@@ -100,14 +105,16 @@ export class TaskService {
         endDate: 'Nov 24',
         taskName: 'Tâche 5',
         taskStatus: 'todo',
-        department: 'Marketing'
-      }
+        department: 'Marketing',
+      },
     ];
 
     fakeTasks.forEach((Tasks) => {
       this.addTask(Tasks)
         .then(() => console.log('Tasks ajouté avec succès:', Tasks))
-        .catch((error) => console.error('Erreur lors de l\'ajout des tasks:', error));
+        .catch((error) =>
+          console.error("Erreur lors de l'ajout des tasks:", error)
+        );
     });
 
     this.hasAddedFakeTasks = true;
@@ -126,45 +133,57 @@ export class TaskService {
     return this.tasksSubject.asObservable();
   }
 
-  getTaskByDepartment(department: string, projectName?: string): Observable<number> {
+  getTaskByDepartment(
+    department: string,
+    projectName?: string
+  ): Observable<number> {
     return new Observable<number>((observer) => {
-      this.getTasks()
-        .subscribe((tasks: Task[]) => {
-          let filteredTasks = tasks.filter((task) => task.department === department);
+      this.getTasks().subscribe((tasks: Task[]) => {
+        let filteredTasks = tasks.filter(
+          (task) => task.department === department
+        );
 
-          if (projectName) {
-            filteredTasks = filteredTasks.filter((task) => task.projectName === projectName);
-          }
+        if (projectName) {
+          filteredTasks = filteredTasks.filter(
+            (task) => task.projectName === projectName
+          );
+        }
 
-          const completedTasks = filteredTasks.filter((task) => task.taskStatus === 'Terminée');
-          const completionPercentage = (completedTasks.length / filteredTasks.length) * 100;
-          observer.next(completionPercentage);
-        });
+        const completedTasks = filteredTasks.filter(
+          (task) => task.taskStatus === 'done'
+        );
+        const completionPercentage =
+          (completedTasks.length / filteredTasks.length) * 100;
+        observer.next(completionPercentage);
+      });
     });
   }
 
   getTasksByStatus(status: string, projectName?: string): Observable<Task[]> {
     return new Observable<Task[]>((observer) => {
-      this.getTasks()
-        .subscribe((tasks: Task[]) => {
-          let filteredTasks = tasks.filter((task) => task.taskStatus === status);
+      this.getTasks().subscribe((tasks: Task[]) => {
+        console.log('tasks', status);
+        let filteredTasks = tasks.filter((task) => task.taskStatus === status);
 
-          if (projectName) {
-            filteredTasks = filteredTasks.filter((task) => task.projectName === projectName);
-          }
+        if (projectName) {
+          filteredTasks = filteredTasks.filter(
+            (task) => task.projectName === projectName
+          );
+        }
 
-          observer.next(filteredTasks);
-        });
+        observer.next(filteredTasks);
+      });
     });
   }
 
   getTasksByProject(projectName: string): Observable<Task[]> {
     return new Observable<Task[]>((observer) => {
-      this.getTasks()
-        .subscribe((tasks: Task[]) => {
-          const filteredTasks = tasks.filter((task) => task.projectName === projectName);
-          observer.next(filteredTasks);
-        });
+      this.getTasks().subscribe((tasks: Task[]) => {
+        const filteredTasks = tasks.filter(
+          (task) => task.projectName === projectName
+        );
+        observer.next(filteredTasks);
+      });
     });
   }
 
@@ -215,7 +234,10 @@ export class TaskService {
       request.onupgradeneeded = () => {
         const db = request.result;
         if (!db.objectStoreNames.contains(this.objectStoreName)) {
-          db.createObjectStore(this.objectStoreName, { keyPath: 'id', autoIncrement: true });
+          db.createObjectStore(this.objectStoreName, {
+            keyPath: 'id',
+            autoIncrement: true,
+          });
         }
       };
     });

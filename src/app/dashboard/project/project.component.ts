@@ -1,4 +1,11 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Task } from 'src/app/interface/task.interface';
+import { TaskService } from 'src/app/services/task.service';
+
+interface ProgressBarValues {
+  [category: string]: number;
+}
 
 @Component({
   selector: 'app-project',
@@ -7,138 +14,116 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 })
 export class ProjectComponent implements AfterViewInit {
   private dragSrcEl: HTMLElement | null = null;
+  devProgress = 0;
+  marketingProgress = 0;
+  creationProgress = 0;
+  projectTasks: Task[] = [];
+  todoTasks: Task[] = [];
+  progressTasks: Task[] = [];
+  reviewTasks: Task[] = [];
+  doneTasks: Task[] = [];
+  showForm = false;
 
-  constructor(private el: ElementRef) { }
+  selectedTask: Task = {
+    projectName: '',
+    taskName: '',
+    taskStatus: '',
+    department: '',
+    memberAvatar: 'url_vers_image',
+    endDate: new Date().toISOString()
+  };
+  updateFormVisible = false;
+
+  constructor(private el: ElementRef, private TasksService: TaskService) {
+    this.getTasksByDepartment('Projet A', 'Développement');
+    this.getTasksByDepartment('Projet A', 'Marketing');
+    this.getTasksByDepartment('Projet A', 'Création');
+    this.getTasksByStatus('Projet A', 'todo');
+    this.getTasksByStatus('Projet A', 'progress');
+    this.getTasksByStatus('Projet A', 'review');
+    this.getTasksByStatus('Projet A', 'done');
+  }
 
   ngAfterViewInit() {
-    this.addDragDropFunctionality();
-    this.addDropFunctionalityToColumns();
     this.updateProgressBars();
   }
 
-  private addDragDropFunctionality() {
-    const items = this.el.nativeElement.querySelectorAll('.task');
-    items.forEach((item: HTMLElement) => {
-      item.addEventListener('dragstart', this.handleDragStart.bind(this), false);
-      item.addEventListener('dragenter', this.handleDragEnter.bind(this), false);
-      item.addEventListener('dragover', this.handleDragOver.bind(this), false);
-      item.addEventListener('dragleave', this.handleDragLeave.bind(this), false);
-      item.addEventListener('drop', this.handleDrop.bind(this), false);
-      item.addEventListener('dragend', this.handleDragEnd.bind(this), false);
+  getTagClass(department: string): string {
+    switch (department) {
+      case 'Développement':
+        return 'task__tag--developpement';
+      case 'Marketing':
+        return 'task__tag--marketing';
+      case 'Création':
+        return 'task__tag--creation';
+      default:
+        return '';
+    }
+  }
+
+  openForm(task: Task) {
+    this.selectedTask = task;
+    this.updateFormVisible = true;
+  }
+
+  onUpdate(form: NgForm) {
+    this.TasksService.updateTask(this.selectedTask)
+      .then(() => {
+        console.log("Task updated");
+        this.updateFormVisible = false;
+        form.reset();
+        // Refresh tasks or do other necessary updates
+      })
+      .catch(err => {
+        console.error("Error updating task", err);
+      });
+  }
+
+  private getTasksByStatus(projectName: string, status: string) {
+    this.TasksService.getTasksByStatus(status, projectName).subscribe((tasks: Task[]) => {
+      switch (status) {
+        case 'todo':
+          this.todoTasks = tasks;
+          break;
+        case 'progress':
+          this.progressTasks = tasks;
+          break;
+        case 'review':
+          this.reviewTasks = tasks;
+          break;
+        case 'done':
+          this.doneTasks = tasks;
+          break;
+      }
     });
   }
 
-  private addDropFunctionalityToColumns() {
-    const columns = this.el.nativeElement.querySelectorAll('.project-column');
-    columns.forEach((column: HTMLElement) => {
-      column.addEventListener('dragover', this.handleColumnDragOver.bind(this), false);
-      column.addEventListener('drop', this.handleColumnDrop.bind(this), false);
+  private getTasksByDepartment(projectName: string, department: string) {
+    this.TasksService.getTaskByDepartment(department, projectName).subscribe((completionPercentage: number) => {
+      if (department === 'Développement') {
+        this.devProgress = completionPercentage;
+      } else if (department === 'Marketing') {
+        this.marketingProgress = completionPercentage;
+      } else if (department === 'Création') {
+        this.creationProgress = completionPercentage;
+      }
     });
-  }
-
-  private handleDragStart(e: DragEvent) {
-    if (!e.target) return;
-    const target = e.target as HTMLElement;
-    target.style.opacity = '0.1';
-    target.style.border = '3px dashed #c4cad3';
-
-    this.dragSrcEl = target;
-
-    e.dataTransfer!.effectAllowed = 'move';
-    e.dataTransfer!.setData('text/html', this.dragSrcEl.outerHTML);
-  }
-
-  private handleDragOver(e: DragEvent) {
-    if (e.preventDefault) {
-      e.preventDefault();
-    }
-    e.dataTransfer!.dropEffect = 'move';
-
-    return false;
-  }
-
-  private handleDragEnter(e: Event) {
-    if (!e.target) return;
-    const target = e.target as HTMLElement;
-    target.classList.add('task-hover');
-  }
-
-  private handleDragLeave(e: Event) {
-    if (!e.target) return;
-    const target = e.target as HTMLElement;
-    target.classList.remove('task-hover');
-  }
-
-  private handleDrop(e: DragEvent) {
-    if (!e.target) return;
-    const target = e.target as HTMLElement;
-
-    if (e.stopPropagation) {
-      e.stopPropagation(); // stops the browser from redirecting.
-    }
-
-    if (this.dragSrcEl && this.dragSrcEl !== target) {
-      this.dragSrcEl.innerHTML = target.innerHTML;
-      target.innerHTML = e.dataTransfer!.getData('text/html');
-    }
-
-    this.updateProgressBars();
-
-    return false;
-  }
-
-  private handleDragEnd(e: Event) {
-    if (!e.target) return;
-    const target = e.target as HTMLElement;
-    target.style.opacity = '1';
-    target.style.border = '0';
-
-    const items = this.el.nativeElement.querySelectorAll('.task');
-    items.forEach((item: HTMLElement) => {
-      item.classList.remove('task-hover');
-    });
-  }
-
-  private handleColumnDragOver(e: DragEvent) {
-    if (e.preventDefault) {
-      e.preventDefault();
-    }
-    e.dataTransfer!.dropEffect = 'move';
-
-    return false;
-  }
-
-  private handleColumnDrop(e: DragEvent) {
-    if (!e.target) return;
-    const target = e.target as HTMLElement;
-
-    if (e.stopPropagation) {
-      e.stopPropagation(); // stops the browser from redirecting.
-    }
-
-    if (this.dragSrcEl) {
-      target.appendChild(this.dragSrcEl);
-      this.dragSrcEl.style.opacity = '1';
-      this.dragSrcEl.style.border = '0';
-    }
-
-    this.updateProgressBars();
-
-    return false;
   }
 
   private updateProgressBars() {
-    const categories = ['Copywriting', 'Illustration', 'UI Design'];
-    const doneColumn = this.el.nativeElement.querySelector('.project-column[title="done"]');
-
+    const categories = ['developpement', 'marketing', 'creation'];
+    const progressBarValues: ProgressBarValues = {
+      'developpement': this.devProgress / 100,
+      'marketing': this.marketingProgress / 100,
+      'creation': this.creationProgress / 100
+    };
     categories.forEach(category => {
       const totalTasks = this.el.nativeElement.querySelectorAll(`.task[data-category="${category}"]`).length;
-      const doneTasks = doneColumn.querySelectorAll(`.task[data-category="${category}"]`).length;
-
+      const completedTasks = Math.round(progressBarValues[category] * totalTasks);
       const progressBar = this.el.nativeElement.querySelector(`.tag-progress[data-category="${category}"]`);
       if (progressBar) {
         progressBar.setAttribute('max', totalTasks.toString());
-        progressBar.setAttribute('value', doneTasks.toString());
+        progressBar.setAttribute('value', completedTasks.toString());
       }
     });
   }
