@@ -115,17 +115,17 @@ h1 {
     padding:2px 13px;
     font-size:12px;
 
-    &--copyright {
+    &--developpement {
       color:var(--tag-4-text);
       background-color:var(--tag-4);
     }
-    &--design {
-      color:var(--tag-3-text);
-      background-color:var(--tag-3);
-    }
-    &--illustration {
+    &--marketing {
       color:var(--tag-2-text);
       background-color:var(--tag-2);
+    }
+    &--creation {
+      color:var(--tag-3-text);
+      background-color:var(--tag-3);
     }
 
   }
@@ -157,7 +157,7 @@ h1 {
     }
   }
 
-  &__owner {
+  &__owner, img {
     width:25px;
     height:25px;
     border-radius:100rem;
@@ -166,7 +166,6 @@ h1 {
     display:inline-block;
     right:0;
     bottom:0;
-
   }
 }
 
@@ -209,7 +208,7 @@ h1 {
     &::-webkit-progress-value {
       border-radius:10px;
     }
-    &--copyright {
+    &--developpement {
       &::-webkit-progress-bar {
         background-color:#ecd8e6;
       }
@@ -219,7 +218,7 @@ h1 {
       }
     }
 
-    &--illustration {
+    &--marketing {
       &::-webkit-progress-bar {
         background-color:#dee7e3;
 
@@ -230,7 +229,7 @@ h1 {
       }
     }
 
-    &--design {
+    &--creation {
       &::-webkit-progress-bar {
 
         background-color:#d8e7f4;
@@ -292,7 +291,40 @@ h1 {
 
 }
 
-
+.update-form {
+  width:100%;
+  height:100vh;
+  top: 0;
+  left: 0;
+  margin-top:2rem;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  display: flex;
+  & form {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding-top: 5%;
+    & label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5%;
+      margin-left: 20%;
+      margin-right: 20%;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #000000;
+    }
+    & button {
+      width: 30%;
+      margin: auto;
+    }
+  }
+}
 
 
 
