@@ -94,6 +94,15 @@ export class ProjectService {
     this.fetchProjects();
   }
 
+  async deleteProjectByName(projectName: string): Promise<void> {
+    const projects = await this.getProjectsFromDatabase();
+    const project = projects.find(p => p.name === projectName);
+    if (project) {
+      await this.deleteProject(project);
+    }
+    this.fetchProjects();
+  }
+
   getProjects(searchTerm: string = ''): Observable<Project[]> {
     this.fetchProjects(searchTerm);
     return this.projectsSubject.asObservable();
@@ -114,11 +123,26 @@ export class ProjectService {
     return projects.filter(project => project.is_finish).length;
   }
 
-  async deleteProject(projectId: string): Promise<void> {
+  async deleteProject(project: Project): Promise<void> {
     const db = await this.openDatabase();
     const transaction = db.transaction(this.objectStoreName, 'readwrite');
     const objectStore = transaction.objectStore(this.objectStoreName);
-    await objectStore.delete(projectId);
+    const request = objectStore.openCursor();
+  
+    request.onsuccess = (event: any) => {
+      const cursor = event.target.result;
+      if (cursor) {
+        if (cursor.value.name === project.name) {
+          cursor.delete();
+        }
+        cursor.continue();
+      }
+    };
+  
+    request.onerror = (event: any) => {
+      console.error('Erreur lors de la suppression du projet:', event.target.error);
+    };
+  
     this.fetchProjects();
   }
 
@@ -200,5 +224,13 @@ export class ProjectService {
         project.departement.toLowerCase().includes(lowerCaseSearchTerm)
       );
     });
+  }
+
+  async updateProject(project: Project): Promise<void> {
+    const db = await this.openDatabase();
+    const transaction = db.transaction(this.objectStoreName, 'readwrite');
+    const objectStore = transaction.objectStore(this.objectStoreName);
+    await objectStore.put(project);
+    this.fetchProjects();
   }
 }

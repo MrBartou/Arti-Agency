@@ -24,7 +24,7 @@ export class LoginComponent {
       .subscribe(
         (user: User | undefined) => {
           if (user) {
-            this.router.navigate(['/page-suivante']);
+            this.router.navigate(['/admin/home']);
           } else {
             this.loginError = 'Nom d\'utilisateur ou mot de passe incorrect.';
           }

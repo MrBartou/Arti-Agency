@@ -43,9 +43,13 @@
           <input type="text" id="collaborator" name="Chef de projet" [(ngModel)]="projectData.step2.collaborator">
         </label>
 
-        <label class="departement" for="departement">Département:
-          <input type="text" id="departement" name="departement" [(ngModel)]="projectData.step2.departement">
-        </label>
+        <label class="departement" for="departement">Département:</label>
+        <select id="departement" name="departement" [(ngModel)]="projectData.step2.departement">
+          <option value="Web développement">Web développement</option>
+          <option value="Création graphique">Création graphique</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+        <br>
       </div>
 
       <div class="buttons">

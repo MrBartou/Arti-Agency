@@ -52,7 +52,6 @@ export class AcceuilComponent implements OnInit {
         .from('.text', { y: 60, autoAlpha: 0, duration: 3 }, '-=4');
     };
 
-    // Ajouter un écouteur d'événement pour détecter le défilement de la page
     window.addEventListener('scroll', onScroll);
   }
 }
