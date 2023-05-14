@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'pole-creation', component: CreationMaquetteComponent},
   { path: 'pole-marketing', component: PoleMarketingComponent},
   { path: 'admin/home', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: 'admin/home/project', component: ProjectComponent, canActivate: [AuthGuard]},
+  { path: 'admin/home/project/:projectName', component: ProjectComponent, canActivate: [AuthGuard]},
   { path: '**', component: Page404Component },
 ];
 

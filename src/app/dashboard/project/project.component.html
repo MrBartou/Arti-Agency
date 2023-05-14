@@ -1,12 +1,9 @@
 <div class='app'>
   <main class='project'>
     <div class='project-info'>
-      <h1>Homepage Design</h1>
+      <h1>{{ projectName }} - Dashboard</h1>
       <div class='project-participants'>
-        <span></span>
-        <span></span>
-        <span></span>
-        <button class='project-participants__add'>Add Participant</button>
+        <button class='project-participants__add' (click)="showForm = true"></button>
       </div>
     </div>
     <div class="project-tasks">
@@ -135,15 +132,15 @@
   <form #updateForm="ngForm" (ngSubmit)="onUpdate(updateForm)">
     <label>
       Nom du projet:
-      <input type="text" [ngModel]="selectedTask?.projectName" (ngModelChange)="selectedTask && (selectedTask.projectName = $event)" name="projectName" required>
+      <input type="text" [(ngModel)]="projectName" name="projectName" required readonly>
     </label>
     <label>
       Nom de la tâche:
-      <input type="text" [ngModel]="selectedTask?.taskName" (ngModelChange)="selectedTask && (selectedTask.taskName = $event)" name="taskName" required>
+      <input type="text" [ngModel]="selectedTask.taskName" (ngModelChange)="selectedTask && (selectedTask.taskName = $event)" name="taskName" required>
     </label>
     <label>
       Status de la tâche:
-      <select [ngModel]="selectedTask?.taskStatus" (ngModelChange)="selectedTask && (selectedTask.taskStatus = $event)" name="taskStatus" required>
+      <select [ngModel]="selectedTask.taskStatus" (ngModelChange)="selectedTask && (selectedTask.taskStatus = $event)" name="taskStatus" required>
         <option value="todo">Todo</option>
         <option value="progress">Progress</option>
         <option value="review">Review</option>
@@ -152,7 +149,7 @@
     </label>
     <label>
       Département:
-      <select [ngModel]="selectedTask?.department" (ngModelChange)="selectedTask && (selectedTask.department = $event)" name="department" required>
+      <select [ngModel]="selectedTask.department" (ngModelChange)="selectedTask && (selectedTask.department = $event)" name="department" required>
         <option value="Développement">Développement</option>
         <option value="Marketing">Marketing</option>
         <option value="Création">Création</option>
@@ -162,6 +159,41 @@
   </form>
 </div>
 
-
-
-
+<div class="create-form" *ngIf="showForm">
+  <form #createForm="ngForm" (ngSubmit)="onCreate(createForm)">
+    <label>
+      Nom du projet:
+      <input type="text" [(ngModel)]="projectName" name="projectName" required readonly>
+    </label>
+    <label>
+      Nom de la tâche:
+      <input type="text" [(ngModel)]="newTask.taskName" name="taskName" required>
+    </label>
+    <label>
+      Statut de la tâche:
+      <select [(ngModel)]="newTask.taskStatus" name="taskStatus" required>
+        <option value="todo">Todo</option>
+        <option value="progress">Progress</option>
+        <option value="review">Review</option>
+        <option value="done">Done</option>
+      </select>
+    </label>
+    <label>
+      Département:
+      <select [(ngModel)]="newTask.department" name="department" required>
+        <option value="Développement">Développement</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Création">Création</option>
+      </select>
+    </label>
+    <label>
+      Avatar du membre:
+      <input type="text" [(ngModel)]="newTask.memberAvatar" name="memberAvatar" required>
+    </label>
+    <label>
+      Date de fin:
+      <input type="datetime-local" [(ngModel)]="newTask.endDate" name="endDate" required>
+    </label>
+    <button type="submit">Create Task</button>
+  </form>
+</div>

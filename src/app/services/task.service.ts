@@ -23,7 +23,7 @@ export class TaskService {
 
     const fakeTasks: Task[] = [
       {
-        projectName: 'Projet A',
+        projectName: 'Projet 2',
         memberAvatar:
           'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
@@ -32,7 +32,7 @@ export class TaskService {
         department: 'Développement',
       },
       {
-        projectName: 'Projet A',
+        projectName: 'Projet 2',
         memberAvatar:
           'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
@@ -41,7 +41,7 @@ export class TaskService {
         department: 'Marketing',
       },
       {
-        projectName: 'Projet A',
+        projectName: 'Projet 2',
         memberAvatar:
           'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
@@ -50,7 +50,7 @@ export class TaskService {
         department: 'Création',
       },
       {
-        projectName: 'Projet A',
+        projectName: 'Projet 2',
         memberAvatar:
           'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
@@ -59,7 +59,7 @@ export class TaskService {
         department: 'Développement',
       },
       {
-        projectName: 'Projet A',
+        projectName: 'Projet 2',
         memberAvatar:
           'https://images.unsplash.com/photo-1641894252843-9794796577be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80',
         endDate: 'Nov 24',
@@ -68,7 +68,7 @@ export class TaskService {
         department: 'Marketing',
       },
       {
-        projectName: 'Projet B',
+        projectName: 'Projet 3',
         memberAvatar: 'avatar6.jpg',
         endDate: 'Nov 24',
         taskName: 'Tâche 1',
@@ -76,7 +76,7 @@ export class TaskService {
         department: 'Développement',
       },
       {
-        projectName: 'Projet B',
+        projectName: 'Projet 3',
         memberAvatar: 'avatar7.jpg',
         endDate: 'Nov 24',
         taskName: 'Tâche 2',
@@ -84,7 +84,7 @@ export class TaskService {
         department: 'Marketing',
       },
       {
-        projectName: 'Projet B',
+        projectName: 'Projet 3',
         memberAvatar: 'avatar8.jpg',
         endDate: 'Nov 24',
         taskName: 'Tâche 3',
@@ -92,7 +92,7 @@ export class TaskService {
         department: 'Création',
       },
       {
-        projectName: 'Projet B',
+        projectName: 'Projet 3',
         memberAvatar: 'avatar9.jpg',
         endDate: 'Nov 24',
         taskName: 'Tâche 4',
@@ -100,7 +100,7 @@ export class TaskService {
         department: 'Développement',
       },
       {
-        projectName: 'Projet B',
+        projectName: 'Projet 3',
         memberAvatar: 'avatar10.jpg',
         endDate: 'Nov 24',
         taskName: 'Tâche 5',
@@ -162,7 +162,6 @@ export class TaskService {
   getTasksByStatus(status: string, projectName?: string): Observable<Task[]> {
     return new Observable<Task[]>((observer) => {
       this.getTasks().subscribe((tasks: Task[]) => {
-        console.log('tasks', status);
         let filteredTasks = tasks.filter((task) => task.taskStatus === status);
 
         if (projectName) {

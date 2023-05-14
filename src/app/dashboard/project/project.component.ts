@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Task } from 'src/app/interface/task.interface';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -13,7 +14,6 @@ interface ProgressBarValues {
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements AfterViewInit {
-  private dragSrcEl: HTMLElement | null = null;
   devProgress = 0;
   marketingProgress = 0;
   creationProgress = 0;
@@ -30,22 +30,38 @@ export class ProjectComponent implements AfterViewInit {
     taskStatus: '',
     department: '',
     memberAvatar: 'url_vers_image',
-    endDate: new Date().toISOString()
+    endDate: this.formatEndDate(new Date())
+  };
+
+  newTask: Task = {
+    projectName: '',
+    taskName: '',
+    taskStatus: '',
+    department: '',
+    memberAvatar: 'url_vers_image',
+    endDate: this.formatEndDate(new Date())
   };
   updateFormVisible = false;
+  projectName = '';
 
-  constructor(private el: ElementRef, private TasksService: TaskService) {
-    this.getTasksByDepartment('Projet A', 'Développement');
-    this.getTasksByDepartment('Projet A', 'Marketing');
-    this.getTasksByDepartment('Projet A', 'Création');
-    this.getTasksByStatus('Projet A', 'todo');
-    this.getTasksByStatus('Projet A', 'progress');
-    this.getTasksByStatus('Projet A', 'review');
-    this.getTasksByStatus('Projet A', 'done');
+  constructor(private el: ElementRef, private TasksService: TaskService, private route: ActivatedRoute) {
+    this.projectName = this.route.snapshot.params['projectName'];
+    this.getTasksByDepartment(this.projectName, 'Développement');
+    this.getTasksByDepartment(this.projectName, 'Marketing');
+    this.getTasksByDepartment(this.projectName, 'Création');
+    this.getTasksByStatus(this.projectName, 'todo');
+    this.getTasksByStatus(this.projectName, 'progress');
+    this.getTasksByStatus(this.projectName, 'review');
+    this.getTasksByStatus(this.projectName, 'done');
   }
 
   ngAfterViewInit() {
     this.updateProgressBars();
+  }
+
+  formatEndDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
   }
 
   getTagClass(department: string): string {
@@ -67,16 +83,31 @@ export class ProjectComponent implements AfterViewInit {
   }
 
   onUpdate(form: NgForm) {
+    this.selectedTask.endDate = this.formatEndDate(new Date());
+
     this.TasksService.updateTask(this.selectedTask)
       .then(() => {
         console.log("Task updated");
         this.updateFormVisible = false;
         form.reset();
-        // Refresh tasks or do other necessary updates
       })
       .catch(err => {
         console.error("Error updating task", err);
       });
+  }
+
+  async onCreate(form: NgForm) {
+    if (form.valid) {
+      try {
+        this.newTask.projectName = this.projectName;
+        this.newTask.endDate = this.formatEndDate(new Date());
+        await this.TasksService.addTask(this.newTask);
+        this.showForm = false;
+        form.reset();
+      } catch (error) {
+        console.error('Error creating task', error);
+      }
+    }
   }
 
   private getTasksByStatus(projectName: string, status: string) {
@@ -101,11 +132,11 @@ export class ProjectComponent implements AfterViewInit {
   private getTasksByDepartment(projectName: string, department: string) {
     this.TasksService.getTaskByDepartment(department, projectName).subscribe((completionPercentage: number) => {
       if (department === 'Développement') {
-        this.devProgress = completionPercentage;
+        this.devProgress = Number(completionPercentage.toFixed(1));
       } else if (department === 'Marketing') {
-        this.marketingProgress = completionPercentage;
+        this.marketingProgress = Number(completionPercentage.toFixed(1));
       } else if (department === 'Création') {
-        this.creationProgress = completionPercentage;
+        this.creationProgress = Number(completionPercentage.toFixed(1));
       }
     });
   }

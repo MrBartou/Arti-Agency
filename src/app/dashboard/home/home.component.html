@@ -81,7 +81,7 @@
                class="project-box"
                [ngClass]="{'classe-un': i % 3 === 0, 'classe-deux': i % 3 === 1, 'classe-trois': i % 3 === 2}"
                [style.backgroundColor]="departmentColors[project.departement].primary">
-            <div class="project-box-header">
+              <div class="project-box-header">
               <span>{{project.start_date}}</span>
               <div class="more-wrapper">
                 <div class="dropdown">
@@ -94,26 +94,28 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="project-box-content-header">
+              </div>
+          <a [routerLink]="['/admin/home/project', project.name]">
+              <div class="project-box-content-header">
               <p class="box-content-header">{{project.name}}</p>
               <p class="box-content-subheader">{{project.departement}}</p>
-            </div>
-            <div class="box-progress-wrapper">
+              </div>
+              <div class="box-progress-wrapper">
               <p class="box-progress-header">Progress</p>
               <div class="box-progress-bar">
                 <span class="box-progress" [style.width]="project.progress + '%'" [style.backgroundColor]="departmentColors[project.departement].secondary"></span>
               </div>
               <p class="box-progress-percentage">{{project.progress}}%</p>
-            </div>
-            <div class="project-box-footer">
+              </div>
+              <div class="project-box-footer">
               <div class="participants">
                 <img [src]="project.collaborator" alt="participant"/>
               </div>
               <div class="days-left" [style.color]="departmentColors[project.departement].secondary">
                 {{ calculateDateDifference(project.start_date, project.end_date) }} jours restants
               </div>
-            </div>
+              </div>
+          </a>
           </div>
 
         </div>

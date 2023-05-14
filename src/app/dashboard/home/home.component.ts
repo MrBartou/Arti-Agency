@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  isDropdownOpen = false;
   projects$: Observable<Project[]>;
   showForm: any;
   commandes: Commande[] = [];
@@ -135,7 +136,12 @@ export class HomeComponent implements OnInit {
   }
 
   editProject(project: Project): void {
-    this.selectedProject = project;
+    if (this.isDropdownOpen) {
+      this.isDropdownOpen = false;
+    } else {
+      this.selectedProject = project;
+      this.isDropdownOpen = true;
+    }
   }
 
   updateProject(project: Project): void {
